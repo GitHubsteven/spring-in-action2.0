@@ -93,7 +93,7 @@ To do that we will use Spring’s MockMvc, and we can ask for that to be injecte
 
 2.4 WebLayerTest
 
-See the http [HttpRequestTest.java](../src/test/java/java/com/asa/demo/spring/boot/test/service/WebLayer.java)
+See the http [WebLayer.java](../src/test/java/java/com/asa/demo/spring/boot/test/service/WebLayer.java)
 Code looks like the following:
 ```
 @RunWith(SpringJUnit4ClassRunner.class)
