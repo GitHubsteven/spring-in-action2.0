@@ -17,4 +17,6 @@ public class HelloServiceTest extends BaseServiceTest {
     public void testHello() {
         System.out.println(helloService.hi("asa.x"));
     }
+
+
 }

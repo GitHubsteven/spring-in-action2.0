@@ -1,6 +1,5 @@
 package com.asa.demo.spring.boot.test.service;
 
-import com.asa.demo.spring.boot.test.conf.BeanDIConf;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
