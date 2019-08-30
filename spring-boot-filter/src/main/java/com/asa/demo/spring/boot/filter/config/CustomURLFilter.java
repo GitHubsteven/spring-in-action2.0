@@ -33,6 +33,8 @@ public class CustomURLFilter implements Filter {
 
         //call next filter in the filter chain
         filterChain.doFilter(request, response);
+
+        LOGGER.info("-------------------------------response context after chain: {}", response.getContentType());
     }
 
     @Override
