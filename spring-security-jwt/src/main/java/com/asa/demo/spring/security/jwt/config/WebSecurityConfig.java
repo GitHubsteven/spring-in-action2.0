@@ -1,6 +1,5 @@
 package com.asa.demo.spring.security.jwt.config;
 
-import com.asa.demo.spring.security.jwt.controller.JwtAuthenticationController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,9 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        /**
-         * configure authenticationManager so that it knows form where
-         * to load user for matching credentials use BCryptPasswordEncoder
+        /*
+          configure authenticationManager so that it knows form where
+          to load user for matching credentials use BCryptPasswordEncoder
          */
         auth.userDetailsService(jwtUserDetailsService).passwordEncoder(passwordEncoder());
     }
@@ -45,11 +44,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
-
-    public static void main(String[] args) {
-        BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();
-        pwdEncoder.encode("123456");
     }
 
     @Bean
@@ -63,12 +57,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         // We don't need CSRF for this example
         httpSecurity.csrf().disable()
-                // dont authenticate this particular request
+                // don't authenticate this particular request
                 .authorizeRequests()
                 .antMatchers("/authenticate")
-                .permitAll().
+                .permitAll()
                 // all other requests need to be authenticated
-                        anyRequest()
+                .anyRequest()
                 .authenticated()
                 .and()
                 // make sure we use stateless session; session won't be used to
@@ -81,4 +75,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Add a filter to validate the tokens with every request
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
+
 }

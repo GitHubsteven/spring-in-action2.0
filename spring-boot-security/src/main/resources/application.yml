@@ -1,0 +1,18 @@
+server:
+  port: 9200
+spring:
+  application:
+    name: SpringSecurityApp
+  security:
+    user:
+      name: asa.x
+      password: c8be15de-4488-4490-9dc6-fab3f91435c6
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+
+security:
+  oauth2:
+    client:
+      client-id: 39d2835b-1f87-4a77-9798-e2975f36972e
+      client-secret: f1463f8b-0791-46fe-9269-521b86c55b71
+

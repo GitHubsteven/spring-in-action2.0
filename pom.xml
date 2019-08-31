@@ -8,6 +8,7 @@
         <module>spring-cache-demo</module>
         <module>spring-security-jwt</module>
         <module>spring-boot-filter</module>
+        <module>spring-boot-security</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
