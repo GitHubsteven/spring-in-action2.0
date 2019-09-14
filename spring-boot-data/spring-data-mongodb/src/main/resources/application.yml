@@ -1,0 +1,14 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: SpringBootDBApplication
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/spring-data
+
+logging:
+  level:
+    root=DEBUG:
+
+

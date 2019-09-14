@@ -6,5 +6,5 @@
 #### 比较
 | 属性   |  redis          |  mysql | mongodb | h2|
 |----------|:-------------:|------:| ------:| ------:|
-| springBoot抽象依赖 |  org.springframework.data.spring-data-redis | org.springframework.boot.spring-boot-starter-data-jpa | mongoDb | org.springframework.boot.spring-boot-starter-data-jpa|
-| 依赖实现 |   redis.clients.jedis  |   mysql.mysqlmysql-connector-java | mongoDb | com.h2database.h2|
+| springBoot抽象依赖 |  .spring-data-redis | spring-boot-starter-data-jpa | spring-boot-starter-data-mongodb | spring-boot-starter-data-jpa|
+| 依赖实现 |   redis.clients.jedis  |   mysql.mysqlmysql-connector-java | spring-boot-starter-data-mongodb | com.h2database.h2|
