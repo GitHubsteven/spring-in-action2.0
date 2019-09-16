@@ -1,4 +1,4 @@
-package com.asa.demo.spring.cache.redis.model;
+package com.asa.demo.spring.cache.model.red;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

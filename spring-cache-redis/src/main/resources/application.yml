@@ -1,9 +1,21 @@
+server:
+  port:
+    9001
 spring:
   application:
     name: SpringCacheRedisApplication
   redis:
     url: localhost
     port: 6397
-server:
-  port:
-    9001
+  cache:
+    type: redis
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/spring_boot?serverTimezone=UTC
+    username: root
+    password: 123456
+
+
+

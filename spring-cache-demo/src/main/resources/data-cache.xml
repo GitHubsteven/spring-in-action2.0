@@ -1,6 +1,5 @@
-<beans>
+<beans xmlns:cache="http://www.springframework.org/schema/cache">
     <cache:annotation-driven/>
-
     <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
         <property name="caches">
             <set>

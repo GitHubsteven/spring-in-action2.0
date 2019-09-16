@@ -1,4 +1,4 @@
-package com.asa.demo.spring.cache.redis.service;
+package com.asa.demo.spring.cache.service;
 
 import org.springframework.stereotype.Service;
 

@@ -1,12 +1,12 @@
-package com.asa.demo.spring.cache.redis;
+package com.asa.demo.spring.cache;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringCacheRedisApplication {
+public class SpringRedisApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SpringCacheRedisApplication.class);
+        SpringApplication.run(SpringRedisApplication.class);
     }
 }
 

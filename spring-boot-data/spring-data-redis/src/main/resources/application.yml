@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: SpringCacheRedisApplication
+  redis:
+    url: localhost
+    port: 6397
+server:
+  port:
+    9005
+
+

@@ -1,4 +1,4 @@
-package com.asa.demo.spring.cache.redis.config;
+package com.asa.demo.spring.cache.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

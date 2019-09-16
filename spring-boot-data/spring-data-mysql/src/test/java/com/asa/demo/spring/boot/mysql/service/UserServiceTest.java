@@ -18,7 +18,7 @@ public class UserServiceTest {
     @Test
     public void addUser() {
         User user = new User();
-        user.setName("mysql");
+        user.setName("record");
         user.setEmail("root@mysql.com");
         Integer id = userService.addUser(user);
         System.out.println(id);

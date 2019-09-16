@@ -1,8 +1,9 @@
-package com.asa.demo.spring.cache.redis.service;
+package com.asa.demo.spring.cache.service;
 
-import com.asa.demo.spring.cache.redis.model.Student;
-import com.asa.demo.spring.cache.redis.repository.StudentRepository;
+import com.asa.demo.spring.cache.model.red.Student;
+import com.asa.demo.spring.cache.repository.red.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -31,6 +32,7 @@ public class StudentService {
      *
      * @param id 学生id
      */
+    @Cacheable(value = "students", key = "#id")
     public Student findById(String id) {
         return studentRepository.findById(id).orElse(null);
     }

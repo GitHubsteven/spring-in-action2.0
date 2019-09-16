@@ -13,6 +13,7 @@
         <module>spring-data-mysql</module>
         <module>spring-data-mongodb</module>
         <module>spring-jpa-h2</module>
+        <module>spring-data-redis</module>
     </modules>
     <artifactId>spring-boot-data</artifactId>
     <dependencies>

@@ -1,15 +1,14 @@
-package com.asa.demo.spring.cache.redis.service;
+package com.asa.demo.spring.cache.service;
 
-import com.asa.demo.spring.cache.redis.model.Student;
+import com.asa.demo.spring.cache.model.red.Student;
+import junit.runner.BaseTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
-public class StudentServiceTest {
+public class StudentServiceTest extends BaseServiceTest {
 
     @Autowired
     private StudentService studentService;
@@ -17,7 +16,7 @@ public class StudentServiceTest {
     @Test
     public void save() {
         Student engStudent = new Student(
-                "Eng2015001", "John Doe", Student.Gender.MALE, 1);
+                "Eng2015003", "xavi alonso", Student.Gender.MALE, 1);
         studentService.save(engStudent);
     }
 
