@@ -14,6 +14,7 @@
         <module>spring-data-mongodb</module>
         <module>spring-jpa-h2</module>
         <module>spring-data-redis</module>
+        <module>spring-data-mybatis-mysql</module>
     </modules>
     <artifactId>spring-boot-data</artifactId>
     <dependencies>
@@ -32,6 +33,17 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.asa.demo</groupId>
+            <artifactId>spring-boot-domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.projectlombok</groupId>
+                    <artifactId>lombok</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

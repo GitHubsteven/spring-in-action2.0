@@ -12,6 +12,7 @@
         <module>spring-cache-redis</module>
         <module>spring-boot-data</module>
         <module>spring-boot-aspect</module>
+        <module>spring-boot-domain</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
