@@ -1,0 +1,24 @@
+server:
+  port: 9100
+  servlet:
+    session:
+      timeout: 25200
+
+spring:
+  application:
+    name: SessionRedisApplication
+  redis:
+    database: 0
+    host: localhost
+    port: 6397
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: 1
+        max-idle: 8
+        min-idle: 0
+  session:
+    store-type: redis
+    redis:
+      flush-mode: on_save
+      namespace: spring:session
