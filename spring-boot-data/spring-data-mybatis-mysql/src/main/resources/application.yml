@@ -8,3 +8,7 @@ spring:
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  type-aliases-package: com.asa.demo.mybatis.mysql.model
+  mapper-locations: classpath*:com/asa/demo/mybatis/mysql/mapper/*.xml

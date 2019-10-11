@@ -36,7 +36,7 @@
         </dependency>
         <dependency>
             <groupId>com.asa.demo</groupId>
-            <artifactId>spring-boot-domain</artifactId>
+            <artifactId>spring-boot-domain-model</artifactId>
             <version>1.0-SNAPSHOT</version>
             <exclusions>
                 <exclusion>

@@ -5,19 +5,46 @@ import com.asa.demo.mybatis.mysql.model.UserModel;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 /**
- * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
- * @Description:
- * @Author jet.xie
- * @Date: Created at 10:59 2019/10/11.
+ * @Authoer: asa.x
+ * @Date: 2019/10/7
+ * @Descrition:
  */
 public class UserDaoTest extends BaseTest {
     @Autowired
-    private UserDao userDao;
+    private UserDao userDao;    //忽略，除非运行时异常
 
     @Test
-    public void testGetUserById() {
-        UserModel user = userDao.selectUserById((long) 1);
+    public void testSaveUser() {
+        String prefix = "python";
+        int count = userDao.insert(prefix, prefix + "@qq.com");
+        System.out.println(count);
+    }
+
+    @Test
+    public void testFindAll() {
+        List<UserModel> users = userDao.findAll();
+        for (UserModel it : users) {
+            System.out.println(String.format("username:%s,email:%s", it.getName(), it.getEmail()));
+        }
+    }
+
+    @Test
+    public void testFindById() {
+        UserModel user = userDao.findById(4);
+        System.out.println(user.getName());
+    }
+
+    @Test
+    public void testCountUser() {
+        System.out.println(userDao.countUser());
+    }
+
+    @Test
+    public void testGetById() {
+        UserModel user = userDao.getById(1L);
         System.out.println(user.getName());
     }
 }
