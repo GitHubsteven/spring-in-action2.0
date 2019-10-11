@@ -1,27 +1,30 @@
 package com.asa.demo.mybatis.mysql.dao;
 
 import com.asa.demo.mybatis.mysql.model.UserModel;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-
-import java.util.List;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Component;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/10/7
- * @Descrition:
+ * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
+ * @Description:
+ * @Author jet.xie
+ * @Date: Created at 10:55 2019/10/11.
  */
-@Mapper
-public interface UserDao {
-    @Insert("INSERT INTO user(name,email) VALUES(#{name},#{email})")
-    int insert(@Param("name") String name,
-               @Param("email") String email);
+@Component
+public class UserDao {
+    private SqlSession sqlSession;
 
-    @Select("select * from user")
-    List<UserModel> findAll();
+    public UserDao(SqlSession sqlSession) {
+        this.sqlSession = sqlSession;
+    }
 
-    @Select("select * from user where id=#{id}")
-    UserModel findById(@Param("id") Integer id);
+    /**
+     * 因为缺少某些配置，暂时是运行不了的
+     *
+     * @param id userId
+     * @return user
+     */
+    public UserModel selectUserById(Long id) {
+        return sqlSession.selectOne("selectUserById", id);
+    }
 }

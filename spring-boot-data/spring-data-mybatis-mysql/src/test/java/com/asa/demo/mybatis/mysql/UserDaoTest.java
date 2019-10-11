@@ -3,41 +3,21 @@ package com.asa.demo.mybatis.mysql;
 import com.asa.demo.mybatis.mysql.dao.UserDao;
 import com.asa.demo.mybatis.mysql.model.UserModel;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.List;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/10/7
- * @Descrition:
+ * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
+ * @Description:
+ * @Author jet.xie
+ * @Date: Created at 10:59 2019/10/11.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
-public class UserDaoTest {
+public class UserDaoTest extends BaseTest {
     @Autowired
     private UserDao userDao;
 
     @Test
-    public void testSaveUser() {
-        int count = userDao.insert("java", "java@qq.com");
-        System.out.println(count);
-    }
-
-    @Test
-    public void testFindAll() {
-        List<UserModel> users = userDao.findAll();
-        for (UserModel it : users) {
-            System.out.println(String.format("username:%s,email:%s", it.getName(), it.getEmail()));
-        }
-    }
-
-    @Test
-    public void testFindById() {
-        UserModel user = userDao.findById(4);
+    public void testGetUserById() {
+        UserModel user = userDao.selectUserById((long) 1);
         System.out.println(user.getName());
     }
 }
