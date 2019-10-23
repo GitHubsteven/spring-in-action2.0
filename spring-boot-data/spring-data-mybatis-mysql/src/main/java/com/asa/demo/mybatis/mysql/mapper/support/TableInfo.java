@@ -42,27 +42,27 @@ public class TableInfo {
             return tableInfo;
         }
 
-        public Builder fields(Field[] fields) {
+        public TIBuilder fields(Field[] fields) {
             tableInfo.setFields(fields);
             return this;
         }
 
-        public Builder tableName(String tableName) {
+        public TIBuilder tableName(String tableName) {
             tableInfo.setTableName(tableName);
             return this;
         }
 
-        public Builder primaryKeyColumn(String primaryKeyColumn) {
+        public TIBuilder primaryKeyColumn(String primaryKeyColumn) {
             tableInfo.setPrimaryKeyColumn(primaryKeyColumn);
             return this;
         }
 
-        public Builder columns(String[] columns) {
+        public TIBuilder columns(String[] columns) {
             tableInfo.setColumns(columns);
             return this;
         }
 
-        public Builder selectColumns(String[] columns) {
+        public TIBuilder selectColumns(String[] columns) {
             tableInfo.setSelectColumns(columns);
             return this;
         }

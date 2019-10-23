@@ -15,4 +15,5 @@ public class UserModel extends BaseModel<Long> {
     private String password;
     private String email;
     private String role;
+
 }
