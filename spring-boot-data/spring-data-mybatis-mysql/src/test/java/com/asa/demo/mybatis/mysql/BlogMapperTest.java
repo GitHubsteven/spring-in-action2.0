@@ -32,7 +32,29 @@ public class BlogMapperTest extends BaseTest {
 
     @Test
     public void testCountUserBlog() {
-        List<CountUser> countUsers = blogMapper.countUserBlog();
+        List<CountUser> countUsers = blogMapper.listUserBlog();
         countUsers.forEach(System.out::println);
+    }
+
+    @Test
+    public void testCount() {
+        System.out.println(blogMapper.count());
+    }
+
+    @Test
+    public void testCountByCriteria() {
+        BlogModel checkModel = new BlogModel();
+        checkModel.setAuthor("asa.x");
+        System.out.println(blogMapper.countByCriteria(checkModel));
+    }
+
+    @Test
+    public void testInsertModel() {
+        BlogModel blogModel = new BlogModel();
+        blogModel.setTitle("insert by custom mapper common api");
+        blogModel.setAuthor("BlogMapperTest");
+
+        Integer insert = blogMapper.insert(blogModel);
+        System.out.println(insert);
     }
 }

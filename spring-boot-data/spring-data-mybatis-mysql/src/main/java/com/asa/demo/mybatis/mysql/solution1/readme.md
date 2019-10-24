@@ -1,0 +1,1 @@
+[Mybatis之通用Mapper（基于mybatis的Provider机制无需第三方插件包）](https://blog.csdn.net/mayfly_hml/article/details/88846479)

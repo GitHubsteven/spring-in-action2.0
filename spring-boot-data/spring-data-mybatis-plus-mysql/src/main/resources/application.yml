@@ -1,0 +1,26 @@
+server:
+  port: 9300
+
+spring:
+  application:
+    name: mybatis_plus_mysql_app
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+logging:
+  level:
+    root: warn
+    pers:
+      demo:
+        asa:
+          spring:
+            data:
+              mybatis:
+                plus:
+                  mysql:
+                    mapper: trace
+  pattern:
+    console: '%p%m%n'
+

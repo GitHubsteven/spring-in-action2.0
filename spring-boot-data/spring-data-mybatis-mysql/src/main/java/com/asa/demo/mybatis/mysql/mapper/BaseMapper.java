@@ -1,7 +1,10 @@
 package com.asa.demo.mybatis.mysql.mapper;
 
-import com.asa.demo.mybatis.mysql.mapper.provider.InsertSqlProvider;
+import com.asa.demo.mybatis.mysql.solution1.provider.CountByCriteriaSqlProvider;
+import com.asa.demo.mybatis.mysql.solution1.provider.CountSqlProvider;
+import com.asa.demo.mybatis.mysql.solution1.provider.InsertSqlProvider;
 import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.SelectProvider;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -12,4 +15,10 @@ import org.apache.ibatis.annotations.InsertProvider;
 public interface BaseMapper<Entity> {
     @InsertProvider(type = InsertSqlProvider.class, method = "sql")
     Integer insert(Entity entity);
+
+    @SelectProvider(type = CountSqlProvider.class, method = "sql")
+    Long count();
+
+    @SelectProvider(type = CountByCriteriaSqlProvider.class, method = "sql")
+    Long countByCriteria(Entity model);
 }

@@ -15,6 +15,7 @@
         <module>spring-jpa-h2</module>
         <module>spring-data-redis</module>
         <module>spring-data-mybatis-mysql</module>
+        <module>spring-data-mybatis-plus-mysql</module>
     </modules>
     <artifactId>spring-boot-data</artifactId>
     <dependencies>

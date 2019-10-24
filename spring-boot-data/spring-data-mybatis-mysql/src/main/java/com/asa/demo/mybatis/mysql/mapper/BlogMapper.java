@@ -1,6 +1,6 @@
 package com.asa.demo.mybatis.mysql.mapper;
 
-import com.asa.demo.mybatis.mysql.mapper.provider.BlogSqlProvider;
+import com.asa.demo.mybatis.mysql.solution1.provider.BlogSqlProvider;
 import com.asa.demo.mybatis.mysql.model.BlogModel;
 import com.asa.demo.mybatis.mysql.model.CountUser;
 import org.apache.ibatis.annotations.InsertProvider;
@@ -17,7 +17,7 @@ import java.util.List;
  * @Date: Created at 9:45 2019/10/16.
  */
 @Mapper
-public interface BlogMapper {
+public interface BlogMapper extends BaseMapper<BlogModel> {
     @SelectProvider(type = BlogSqlProvider.class, method = "selectById")
 //    @ResultMap("blogMap")
     BlogModel getById(@Param("id") long id);
@@ -33,5 +33,5 @@ public interface BlogMapper {
     int insertBlog(@Param("title") String title, @Param("author") String author);
 
     @SelectProvider(type = BlogSqlProvider.class, method = "countUserBlog")
-    List<CountUser> countUserBlog();
+    List<CountUser> listUserBlog();
 }
