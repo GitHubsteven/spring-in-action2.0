@@ -1,4 +1,4 @@
-package com.asa.dem.spring.boot.vwe.mapper;
+package com.asa.dem.spring.boot.vwe.dao;
 
 import com.asa.dem.spring.boot.vwe.model.BlogModel;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author asa.x
- * @since 2019-10-25
+ * @since 2019-10-31
  */
-public interface BlogDao extends BaseMapper<BlogModel> {
+public interface BlogMapper extends BaseMapper<BlogModel> {
 
 }

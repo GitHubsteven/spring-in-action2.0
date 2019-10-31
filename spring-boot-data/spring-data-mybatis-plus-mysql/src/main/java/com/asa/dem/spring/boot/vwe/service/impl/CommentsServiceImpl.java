@@ -1,9 +1,8 @@
 package com.asa.dem.spring.boot.vwe.service.impl;
 
 import com.asa.dem.spring.boot.vwe.model.CommentsModel;
-import com.asa.dem.spring.boot.vwe.mapper.CommentsDao;
+import com.asa.dem.spring.boot.vwe.dao.CommentsMapper;
 import com.asa.dem.spring.boot.vwe.service.ICommentsService;
-import com.asa.dem.spring.boot.vwe.service.impl.BaseService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,9 +11,9 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author asa.x
- * @since 2019-10-25
+ * @since 2019-10-31
  */
 @Service
-public class CommentsServiceImpl extends BaseService<CommentsDao, CommentsModel> implements ICommentsService {
+public class CommentsServiceImpl extends BaseService<CommentsMapper, CommentsModel> implements ICommentsService {
 
 }

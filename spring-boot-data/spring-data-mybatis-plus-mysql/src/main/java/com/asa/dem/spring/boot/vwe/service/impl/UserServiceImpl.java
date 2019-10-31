@@ -1,9 +1,8 @@
 package com.asa.dem.spring.boot.vwe.service.impl;
 
 import com.asa.dem.spring.boot.vwe.model.UserModel;
-import com.asa.dem.spring.boot.vwe.mapper.UserDao;
+import com.asa.dem.spring.boot.vwe.dao.UserMapper;
 import com.asa.dem.spring.boot.vwe.service.IUserService;
-import com.asa.dem.spring.boot.vwe.service.impl.BaseService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,9 +11,9 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author asa.x
- * @since 2019-10-25
+ * @since 2019-10-31
  */
 @Service
-public class UserServiceImpl extends BaseService<UserDao, UserModel> implements IUserService {
+public class UserServiceImpl extends BaseService<UserMapper, UserModel> implements IUserService {
 
 }

@@ -76,6 +76,7 @@ public class VweCodeGenerator {
         pc.setModuleName(scanner("模块名"));
         pc.setParent(PARENT_PACKAGE);
         pc.setEntity("model");
+        pc.setMapper("dao");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
@@ -94,15 +95,17 @@ public class VweCodeGenerator {
         // 自定义输出配置
         List<FileOutConfig> focList = new ArrayList<>();
         // 自定义配置会被优先输出
+        //mapper.xml
         focList.add(new FileOutConfig(templatePath) {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
                 return projectPath + "/src/main/resources/mapper/" + pc.getModuleName()
-                        + PATH_SEPARATOR + tableInfo.getEntityName().replace(ENTITY_SUFFIX, "Mapper")
+                        + PATH_SEPARATOR + tableInfo.getEntityName().replace(ENTITY_SUFFIX, "ExtMapper")
                         + StringPool.DOT_XML;
             }
         });
+        //model
         focList.add(new FileOutConfig("/templates/entity.java.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
@@ -115,6 +118,20 @@ public class VweCodeGenerator {
                         + PATH_SEPARATOR + tableInfo.getEntityName() + StringPool.DOT_JAVA;
             }
         });
+
+        focList.add(new FileOutConfig("/template/vwe-mapper.java.ftl") {
+            @Override
+            public String outputFile(TableInfo tableInfo) {
+                return projectPath + "/src/main/java/"
+                        + PARENT_PACKAGE.replaceAll("\\.", "/")
+                        + PATH_SEPARATOR
+                        + pc.getModuleName()
+                        + "/dao"
+                        + PATH_SEPARATOR + tableInfo.getEntityName().replace("Model", "Dao")
+                        + StringPool.DOT_JAVA;
+            }
+        });
+
         /*
         cfg.setFileCreate(new IFileCreate() {
             @Override
@@ -138,7 +155,8 @@ public class VweCodeGenerator {
         // templateConfig.setController();
 
         templateConfig.setXml(null)
-                .setEntity(null);
+                .setEntity(null)
+                .setMapper(null);
         mpg.setTemplate(templateConfig);
 
         // 策略配置
@@ -153,7 +171,7 @@ public class VweCodeGenerator {
         strategy.setSuperServiceImplClass("com.asa.dem.spring.boot.vwe.service.impl.BaseService");
         // 写于父类中的公共字段
         strategy.setSuperEntityColumns("id", "creator", "createTime", "modifier", "modifyTime");
-        strategy.setInclude("^vwe_(.*)$", "user");
+        strategy.setInclude("^vwe_(.*)$", "user", "session");   //
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);
