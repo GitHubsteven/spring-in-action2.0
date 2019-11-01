@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asa.demo.mybatis.mysql.mapper.SessionMapper">
+    <resultMap id="BaseColumn" type="com.asa.demo.mybatis.mysql.model.SessionModel">
+        <id column="id" property="id" javaType="Long"/>
+        <result column="session_id" property="sessionId" javaType="String"/>
+        <result column="remark" property="remark" javaType="String"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="BaseColumn">
+        select * from
+        spring_boot.session
+        where id = #{id}
+    </select>
+
+</mapper>

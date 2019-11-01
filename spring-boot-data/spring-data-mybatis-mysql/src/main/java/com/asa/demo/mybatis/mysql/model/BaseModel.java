@@ -13,6 +13,7 @@ import java.util.Date;
 @Setter
 @Getter
 public class BaseModel<T> {
+    private Long id;
     private T baseId;
     private String creator;
     private Date createTime;

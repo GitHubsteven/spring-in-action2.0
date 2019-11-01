@@ -11,7 +11,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 logging:
   level:
-    root: warn
+    root: info
     pers:
       demo:
         asa:
@@ -20,7 +20,7 @@ logging:
               mybatis:
                 plus:
                   mysql:
-                    mapper: trace
+                    mapper: info
   pattern:
     console: '%p%m%n'
 

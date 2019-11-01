@@ -4,6 +4,7 @@ package com.asa.dem.spring.boot.vwe.controller;
 import com.asa.dem.spring.boot.vwe.bean.BlogBean;
 import com.asa.dem.spring.boot.vwe.dao.BlogMapper;
 import com.asa.dem.spring.boot.vwe.model.BlogModel;
+import com.asa.dem.spring.boot.vwe.service.IBlogService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,14 +23,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/vwe/blog")
 public class BlogController extends BaseController {
-//    @Autowired
-//    private BlogMapper blogDao;
+    @Autowired
+    private IBlogService iBlogService;
 
     @RequestMapping("/add")
     public Boolean addBlog(@RequestBody BlogBean blog) {
-        BlogModel blogModel = new BlogModel();
-        BeanUtils.copyProperties(blog, blogModel);
-//        int insert = blogDao.insert(blogModel);
-        return true;
+        BlogModel model = new BlogModel();
+        BeanUtils.copyProperties(blog, model);
+        return iBlogService.save(model);
     }
 }
