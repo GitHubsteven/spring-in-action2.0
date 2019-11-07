@@ -22,4 +22,10 @@ public class BlogServiceImplTest extends BaseServiceTest {
         boolean isSaved = iBlogService.save(blog);
         Assert.assertTrue(isSaved);
     }
+
+    @Test
+    public void testCount() {
+        int number = iBlogService.countBlogs();
+        System.out.println(number);
+    }
 }

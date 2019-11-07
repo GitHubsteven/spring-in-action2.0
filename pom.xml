@@ -14,6 +14,7 @@
         <module>spring-boot-aspect</module>
         <module>spring-boot-domain</module>
         <module>spring-session-redis</module>
+        <module>spring-boot-freemarker</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -111,6 +112,7 @@
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
+                    <include>**/*.pers.demo.asa.freemarker.ftl</include>
                 </includes>
             </resource>
             <resource>

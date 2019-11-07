@@ -10,9 +10,7 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -55,9 +53,12 @@ public class VweCodeGenerator {
         String projectPath = userDir + "/spring-boot-data" + "/spring-data-mybatis-plus-mysql";
         gc.setOutputDir(projectPath + "/src/main/java");
         gc.setAuthor("asa.x");
+        gc.setActiveRecord(false);
 
         gc.setEntityName("%s" + ENTITY_SUFFIX);
         gc.setMapperName("%sDao");
+        gc.setActiveRecord(false);
+        gc.setBaseResultMap(true);
         gc.setOpen(false);
         // gc.setSwagger2(true); 实体属性 Swagger2 注解
         mpg.setGlobalConfig(gc);
@@ -73,7 +74,7 @@ public class VweCodeGenerator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setModuleName(scanner("模块名"));
+        pc.setModuleName("vwe");
         pc.setParent(PARENT_PACKAGE);
         pc.setEntity("model");
         pc.setMapper("dao");
@@ -83,7 +84,10 @@ public class VweCodeGenerator {
         InjectionConfig cfg = new InjectionConfig() {
             @Override
             public void initMap() {
-                // to do nothing
+                Map<String, Object> map = new HashMap<>();
+                map.put("supperEntityCardArg", "Long");
+                map.put("hasSuperEntityCard", Boolean.TRUE);
+                this.setMap(map);
             }
         };
 
@@ -106,7 +110,7 @@ public class VweCodeGenerator {
             }
         });
         //model
-        focList.add(new FileOutConfig("/templates/entity.java.ftl") {
+        focList.add(new FileOutConfig("/template/vwe-entity.java.ftl") {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 return userDir + "/spring-boot-domain/spring-boot-domain-model"
@@ -156,7 +160,9 @@ public class VweCodeGenerator {
 
         templateConfig.setXml(null)
                 .setEntity(null)
-                .setMapper(null);
+                .setMapper(null)
+                .setServiceImpl(null)
+                .setService(null);
         mpg.setTemplate(templateConfig);
 
         // 策略配置
@@ -171,7 +177,7 @@ public class VweCodeGenerator {
         strategy.setSuperServiceImplClass("com.asa.dem.spring.boot.vwe.service.impl.BaseService");
         // 写于父类中的公共字段
         strategy.setSuperEntityColumns("id", "creator", "createTime", "modifier", "modifyTime");
-        strategy.setInclude("^vwe_(.*)$", "user", "session");   //
+        strategy.setInclude("^vwe_(.*)$", "user", "session", "test");   //
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");
         mpg.setStrategy(strategy);

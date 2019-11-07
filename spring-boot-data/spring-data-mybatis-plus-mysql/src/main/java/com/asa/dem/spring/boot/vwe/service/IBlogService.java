@@ -12,4 +12,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2019-10-25
  */
 public interface IBlogService extends IService<BlogModel> {
+    int countBlogs();
 }

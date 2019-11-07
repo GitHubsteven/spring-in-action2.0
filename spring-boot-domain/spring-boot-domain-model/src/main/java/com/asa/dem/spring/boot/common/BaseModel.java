@@ -20,9 +20,9 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @Accessors(chain = true)
-public class BaseModel implements Serializable {
+public class BaseModel<K> implements Serializable {
     @TableId(type = IdType.AUTO)
-    private Long id;
+    private K id;
     private transient String creator;
     private transient String modifier;
     private transient LocalDateTime createTime;
