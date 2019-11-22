@@ -1,6 +1,5 @@
 package com.asa.dem.spring.boot.vwe.model;
 
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.asa.dem.spring.boot.common.BaseModel;
 import lombok.Data;
@@ -13,20 +12,17 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author asa.x
- * @since 2019-10-25
+ * @since 2019-11-06
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("vwe_blog")
-public class BlogModel extends BaseModel {
+@TableName("test")
+public class TestModel extends BaseModel<Long> {
 
-    @TableId
     private static final long serialVersionUID = 1L;
 
-    private String title;
-
-    private String author;
+    private String context;
 
 
 }
