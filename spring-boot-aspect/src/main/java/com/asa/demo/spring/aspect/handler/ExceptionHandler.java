@@ -1,6 +1,7 @@
 package com.asa.demo.spring.aspect.handler;
 
 import org.springframework.core.Ordered;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * @Author jet.xie
  * @Date: Created at 18:09 2019/12/13.
  */
+@Component
 public class ExceptionHandler implements HandlerExceptionResolver, Ordered {
     @Override
     public int getOrder() {

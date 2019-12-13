@@ -1,6 +1,5 @@
 package com.asa.demo.spring.aspect.controller;
 
-import com.asa.demo.spring.aspect.bean.UserContextThreadLocal;
 import com.asa.demo.spring.aspect.core.Loggable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +16,6 @@ public class DemoController implements Loggable {
     @RequestMapping("/test")
     public String test() {
         LOGGER.info("---------->>>>>>>>>test");
-        return UserContextThreadLocal.get().getLoginName() + "demo.test";
+        return "demo.test";
     }
 }
