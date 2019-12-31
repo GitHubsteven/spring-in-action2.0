@@ -3,6 +3,7 @@ package com.asa.demo.spring.aspect.controller;
 import com.asa.demo.spring.aspect.bean.Book;
 import com.asa.demo.spring.aspect.bean.UserContextThreadLocal;
 import com.asa.demo.spring.aspect.core.Loggable;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,8 @@ public class BookController implements Loggable {
     @RequestMapping("/getBookByIsb/{isb}")
     public String getBookByISB(@PathVariable("isb") String isb) {
         LOGGER.info("---------->>>>>>>>>getBookByISB");
-        return UserContextThreadLocal.get().getLoginName() + "book/" + isb;
+        String result = UserContextThreadLocal.get().getLoginName() + "book/" + isb;
+        return result.replaceAll("/", ".");
     }
 
     @PostMapping("/add")
@@ -27,11 +29,9 @@ public class BookController implements Loggable {
         System.out.println("---------->" + book.toString());
         String requestBody = (String) servletRequest.getAttribute("request_body");
         System.out.println(requestBody);
-        throwExp();
+        if (StringUtils.isEmpty(book.getName())) {
+            throw new IllegalArgumentException("name can not be blank!");
+        }
         return requestBody;
-    }
-
-    private void throwExp() {
-        throw new RuntimeException("test for the servlet filter");
     }
 }

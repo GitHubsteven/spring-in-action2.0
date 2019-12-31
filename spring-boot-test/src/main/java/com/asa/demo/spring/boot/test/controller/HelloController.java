@@ -2,9 +2,9 @@ package com.asa.demo.spring.boot.test.controller;
 
 import com.asa.demo.spring.boot.test.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
@@ -21,5 +21,15 @@ public class HelloController {
     @GetMapping("/home")
     public String home() {
         return helloService.hi("asa.x") + "welcome to home!";
+    }
+
+    @PutMapping("/users/{id}")
+    public boolean updateUser(@RequestBody Map<String, String> parameters) {
+        return true;
+    }
+
+    @DeleteMapping("/users/{id}")
+    public boolean deleteUser() {
+        return true;
     }
 }
