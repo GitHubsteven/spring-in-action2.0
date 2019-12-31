@@ -15,6 +15,7 @@
         <module>spring-boot-domain</module>
         <module>spring-session-redis</module>
         <module>spring-boot-freemarker</module>
+        <module>spring-boot-transaction</module>
         <module>spring-rest-api</module>
     </modules>
     <parent>
