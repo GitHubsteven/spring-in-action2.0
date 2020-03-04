@@ -18,6 +18,8 @@ public class HelloController {
     @Autowired
     private HelloService helloService;
 
+    public static int count = 0;
+
     @GetMapping("/home")
     public String home() {
         return helloService.hi("asa.x") + "welcome to home!";
@@ -31,5 +33,10 @@ public class HelloController {
     @DeleteMapping("/users/{id}")
     public boolean deleteUser() {
         return true;
+    }
+
+    @GetMapping("/session")
+    public int sessionTrace() {
+        return count++;
     }
 }

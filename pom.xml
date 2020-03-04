@@ -17,6 +17,7 @@
         <module>spring-boot-freemarker</module>
         <module>spring-boot-transaction</module>
         <module>spring-rest-api</module>
+        <module>spring-apache-flume</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

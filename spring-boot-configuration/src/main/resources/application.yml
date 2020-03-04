@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: SpringBootCfgApp
+server:
+  port: 9400
+
+self:
+  params:
+    defaultUrl: 10.0.0.1
+    biz:
+      vo: 10.0.0.vo
+      ali: 10.0.0.ali
+      kof: 10.0.0.kof
