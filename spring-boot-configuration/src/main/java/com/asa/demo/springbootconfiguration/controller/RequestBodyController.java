@@ -71,7 +71,7 @@ public class RequestBodyController {
      */
     @PostMapping("/x-www-form-urlEncoded-request-body")
     public Map<String, Object> xWwwFormUrlencodedRequestBody(@RequestBody ReceiveBody params) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(0);
         map.put("names", params.getNames());
         return map;
     }
@@ -86,7 +86,7 @@ public class RequestBodyController {
      */
     @PostMapping("/raw-json-request-param")
     public Map<String, Object> rawJsonRequestParam(@RequestParam(value = "names", required = false) List<String> names) {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(0);
         map.put("names", names);
         return map;
     }

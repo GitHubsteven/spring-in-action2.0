@@ -16,7 +16,9 @@ import java.io.Serializable;
 public class PostBean implements Serializable {
     private String name;
     private Integer age;
-    //服务器是否成功接收
+    /**
+     * 服务器是否成功接收
+     */
     private Boolean received;
 
     private Object extendsInfo;

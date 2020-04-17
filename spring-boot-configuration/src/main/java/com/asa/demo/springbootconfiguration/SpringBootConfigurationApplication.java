@@ -9,8 +9,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 
+/**
+ * @author rongbin.xie
+ */
 @SpringBootApplication
 public class SpringBootConfigurationApplication {
 
@@ -28,5 +32,6 @@ public class SpringBootConfigurationApplication {
         private String port;
         private String defaultUrl;
         private Map<String, String> biz;
+        private List<Integer> companyIds;
     }
 }

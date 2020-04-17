@@ -2,7 +2,6 @@ package com.asa.demo.springbootconfiguration.controller;
 
 import com.asa.demo.springbootconfiguration.SpringBootConfigurationApplication;
 import com.asa.demo.springbootconfiguration.bean.PostBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +21,11 @@ public class DemoController {
     @Value("${self.params.defaultUrl}")
     private String defaultUrl;
 
-    @Autowired
-    private SpringBootConfigurationApplication.SelfConfigProperties selfConfigProperties;
+    private final SpringBootConfigurationApplication.SelfConfigProperties selfConfigProperties;
+
+    public DemoController(SpringBootConfigurationApplication.SelfConfigProperties selfConfigProperties) {
+        this.selfConfigProperties = selfConfigProperties;
+    }
 
 
     @GetMapping("/configuration")

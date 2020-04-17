@@ -11,3 +11,7 @@ self:
       vo: 10.0.0.vo
       ali: 10.0.0.ali
       kof: 10.0.0.kof
+    companyIds:
+      - 1
+      - 2
+
