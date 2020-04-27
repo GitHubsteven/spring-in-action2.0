@@ -1,0 +1,7 @@
+application:
+  name: service-inject
+server:
+  port: 9550
+vo:
+  use-mock: true
+

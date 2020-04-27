@@ -27,7 +27,7 @@ public class SpringBootConfigurationApplication {
     @ConfigurationProperties(prefix = "self.params")
     @Setter
     @Getter
-    public class SelfConfigProperties {
+    public static class SelfConfigProperties {
         @Value("{servlet.port}")
         private String port;
         private String defaultUrl;
