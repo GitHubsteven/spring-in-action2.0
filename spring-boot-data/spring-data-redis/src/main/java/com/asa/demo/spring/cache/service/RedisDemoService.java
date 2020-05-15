@@ -3,9 +3,9 @@ package com.asa.demo.spring.cache.service;
 import org.springframework.stereotype.Service;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/13
- * @Descrition: Redis的demo serivce
+ * @author: asa.x
+ * @date: 2019/9/13
+ * @descrition: Redis的demo serivce
  */
 @Service
 public class RedisDemoService {

@@ -3,7 +3,6 @@ package com.asa.demo.spring.security.jwt.config;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.impl.TextCodec;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -16,10 +15,10 @@ import java.util.Objects;
 import java.util.function.Function;
 
 /**
+ * @author jet.xie
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
- * @Author jet.xie
  * @Description:
- * @Date: Created at 19:50 2019/8/29.
+ * @date: Created at 19:50 2019/8/29.
  */
 @Component
 public class JwtTokenUtil implements Serializable {
@@ -35,7 +34,7 @@ public class JwtTokenUtil implements Serializable {
     }
 
     //retrieve expiration date from jwt token
-    public Date getExpirationDateFromToken(String token) {
+    public Date getExpirationdateFromToken(String token) {
         return getClaimFromToken(token, Claims::getExpiration);
     }
 
@@ -52,7 +51,7 @@ public class JwtTokenUtil implements Serializable {
 
     //check if the token has expired
     private boolean isTokenExpired(String token) {
-        final Date expiration = getExpirationDateFromToken(token);
+        final Date expiration = getExpirationdateFromToken(token);
         return expiration.before(new Date());
     }
 

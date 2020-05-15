@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/10/7
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/10/7
+ * @descrition:
  */
 public class UserDaoTest extends BaseTest {
     @Autowired

@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
  * @Description:
- * @Date: Created at 10:09 2019/8/30.
+ * @date: Created at 10:09 2019/8/30.
  */
 @Service
 public class JwtUserDetailsService implements UserDetailsService {

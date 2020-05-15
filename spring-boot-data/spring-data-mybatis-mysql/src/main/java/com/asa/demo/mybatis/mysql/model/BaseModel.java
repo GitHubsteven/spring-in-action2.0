@@ -6,9 +6,9 @@ import lombok.Setter;
 import java.util.Date;
 
 /**
- * @Authoer: asa.x
+ * @author: asa.x
  * @Date: 2019/10/7
- * @Descrition:
+ * @descrition:
  */
 @Setter
 @Getter

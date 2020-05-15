@@ -5,9 +5,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/13
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/13
+ * @descrition:
  */
 @Repository
 public interface StudentRepository extends CrudRepository<Student, String> {

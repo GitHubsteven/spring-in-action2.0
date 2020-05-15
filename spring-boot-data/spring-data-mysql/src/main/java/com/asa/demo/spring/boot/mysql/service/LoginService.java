@@ -9,9 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.UUID;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/12/17
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/12/17
+ * @descrition:
  */
 @Service
 public class LoginService {

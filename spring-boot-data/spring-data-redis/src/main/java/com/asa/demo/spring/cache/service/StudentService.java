@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/13
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/13
+ * @descrition:
  */
 @Service
 public class StudentService {

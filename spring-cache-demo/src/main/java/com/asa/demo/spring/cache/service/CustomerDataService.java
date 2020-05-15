@@ -10,7 +10,7 @@ import org.springframework.cache.annotation.Cacheable;
  * @Author jet.xie
  * @Description: This kind of conditional caching can prove quite useful for managing large results and customizing behavior
  * based on input parameters instead of enforcing a generic behavior to all operations.
- * @Date: Created at 17:00 2019/8/27.
+ * @date: Created at 17:00 2019/8/27.
  */
 @CacheConfig(cacheNames = {"addresses"})
 public class CustomerDataService {

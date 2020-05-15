@@ -14,10 +14,9 @@ import java.io.IOException;
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
- * @Description:
- * 1. registered by @Component annotation.
+ * @Description: 1. registered by @Component annotation.
  * 2. To fire filters in the right order–we needed to use the @Order annotation.
- * @Date: Created at 17:34 2019/8/30.
+ * @date: Created at 17:34 2019/8/30.
  */
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)

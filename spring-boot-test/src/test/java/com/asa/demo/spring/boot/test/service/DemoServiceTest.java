@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
  * @Description: this is the demo for the test case used by @contextConfiguration
- * @Date: Created at 11:28 2019/8/27.
+ * @date: Created at 11:28 2019/8/27.
  */
 @RunWith(SpringRunner.class)
 //@ContextConfiguration(classes =BeanDIConf.class)

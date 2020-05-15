@@ -13,7 +13,7 @@ import java.util.Map;
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Description:
  * @Author asa.x
- * @Date: Created at 14:12 2020/3/4.
+ * @date: Created at 14:12 2020/3/4.
  */
 @RestController
 @RequestMapping("/demo")

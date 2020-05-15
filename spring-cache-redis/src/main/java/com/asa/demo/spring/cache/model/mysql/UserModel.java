@@ -10,9 +10,9 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/13
- * @Descrition: This is the entity class which Hibernate will automatically translate into a table.
+ * @author: asa.x
+ * @date: 2019/9/13
+ * @descrition: This is the entity class which Hibernate will automatically translate into a table.
  * <strong> Hibernate will create the table if not exist </strong>
  */
 @Entity(name = "user")

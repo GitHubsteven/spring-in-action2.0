@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
  * @Description:
- * @Date: Created at 16:02 2019/8/27.
+ * @date: Created at 16:02 2019/8/27.
  */
 @Setter
 @Getter

@@ -7,12 +7,11 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
-import sun.applet.resources.MsgAppletViewer_es;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/15
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/15
+ * @descrition:
  */
 @Component
 public class ComUser implements Loggable {

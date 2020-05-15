@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/13
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/13
+ * @descrition:
  */
 @SpringBootApplication
 public class SpringDataJpaH2Application {

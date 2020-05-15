@@ -4,9 +4,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/14
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/14
+ * @descrition:
  */
 @Configuration
 @ComponentScan("com.asa.demo.spring.boot.data.mongodb")

@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
  * @Description:
- * @Date: Created at 14:48 2019/8/27.
+ * @date: Created at 14:48 2019/8/27.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebMvcTest(HelloController.class)

@@ -2,8 +2,6 @@ package com.asa.demo.spring.security.jwt.config;
 
 import com.asa.demo.spring.security.jwt.service.JwtUserDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,7 +20,7 @@ import java.io.IOException;
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
  * @Description:
- * @Date: Created at 10:37 2019/8/30.
+ * @date: Created at 10:37 2019/8/30.
  */
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {

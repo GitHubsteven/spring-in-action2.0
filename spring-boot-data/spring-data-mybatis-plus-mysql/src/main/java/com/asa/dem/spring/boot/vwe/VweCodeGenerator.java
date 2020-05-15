@@ -16,7 +16,7 @@ import java.util.*;
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Description:
  * @Author jet.xie
- * @Date: Created at 16:36 2019/10/25.
+ * @date: Created at 16:36 2019/10/25.
  */
 public class VweCodeGenerator {
     private static String DATASOURCE_URL = "jdbc:mysql://127.0.0.1:3306/spring_boot?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC";

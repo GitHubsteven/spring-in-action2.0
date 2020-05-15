@@ -15,7 +15,7 @@ import java.io.Serializable;
  * @Author jet.xie
  * @Description: This class will extend Spring's AuthenticationEntryPoint class and override its method to commence.
  * It rejects every unauthenticated request and sends error code 401.
- * @Date: Created at 15:21 2019/8/30.
+ * @date: Created at 15:21 2019/8/30.
  */
 @Component
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Serializable {

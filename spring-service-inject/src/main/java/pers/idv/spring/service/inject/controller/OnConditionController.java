@@ -1,6 +1,5 @@
 package pers.idv.spring.service.inject.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +16,11 @@ import pers.idv.spring.service.inject.service.IService;
 @RestController
 @RequestMapping("/on-condition")
 public class OnConditionController {
-    @Autowired
-    private IService<DataBean> iService;
+    private final IService<DataBean> iService;
+
+    public OnConditionController(IService<DataBean> iService) {
+        this.iService = iService;
+    }
 
     @GetMapping("/demo")
     public Object demo() {

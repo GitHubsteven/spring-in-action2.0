@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.util.Arrays;
@@ -16,7 +15,7 @@ import java.util.Arrays;
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Description:
  * @Author jet.xie
- * @Date: Created at 16:17 2019/9/27.
+ * @date: Created at 16:17 2019/9/27.
  */
 @Configuration
 public class DIConfig {

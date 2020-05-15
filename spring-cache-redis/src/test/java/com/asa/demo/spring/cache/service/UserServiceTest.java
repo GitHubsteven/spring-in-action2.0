@@ -4,12 +4,11 @@ import com.asa.demo.spring.cache.model.mysql.UserModel;
 import com.asa.demo.spring.cache.repository.mysql.UserRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/15
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/15
+ * @descrition:
  */
 public class UserServiceTest extends BaseServiceTest {
     @Autowired

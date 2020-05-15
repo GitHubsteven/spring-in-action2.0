@@ -5,9 +5,9 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/14
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/14
+ * @descrition:
  */
 @Setter
 @Getter

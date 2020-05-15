@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/13
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/13
+ * @descrition:
  */
 @Service
 public class UserService {

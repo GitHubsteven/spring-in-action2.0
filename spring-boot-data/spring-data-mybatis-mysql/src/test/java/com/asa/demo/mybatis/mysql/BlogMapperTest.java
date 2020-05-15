@@ -12,7 +12,7 @@ import java.util.List;
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Description:
  * @Author jet.xie
- * @Date: Created at 9:53 2019/10/16.
+ * @date: Created at 9:53 2019/10/16.
  */
 public class BlogMapperTest extends BaseTest {
     @Autowired

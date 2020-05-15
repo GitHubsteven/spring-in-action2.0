@@ -5,9 +5,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/12/17
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/12/17
+ * @descrition:
  */
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)

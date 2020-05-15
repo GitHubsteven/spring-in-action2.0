@@ -6,9 +6,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/14
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/14
+ * @descrition:
  */
 public interface CustomerRepository extends MongoRepository<Customer,Long> {
     Customer findByFirstName(String firstName);

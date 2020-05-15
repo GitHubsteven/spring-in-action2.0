@@ -10,9 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/12/17
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/12/17
+ * @descrition:
  */
 @Setter
 @Getter

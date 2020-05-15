@@ -1,8 +1,8 @@
 package com.asa.demo.mybatis.mysql.mapper;
 
-import com.asa.demo.mybatis.mysql.solution1.provider.BlogSqlProvider;
 import com.asa.demo.mybatis.mysql.model.BlogModel;
 import com.asa.demo.mybatis.mysql.model.CountUser;
+import com.asa.demo.mybatis.mysql.solution1.provider.BlogSqlProvider;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -14,7 +14,7 @@ import java.util.List;
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Description:
  * @Author jet.xie
- * @Date: Created at 9:45 2019/10/16.
+ * @date: Created at 9:45 2019/10/16.
  */
 @Mapper
 public interface BlogMapper extends BaseMapper<BlogModel> {

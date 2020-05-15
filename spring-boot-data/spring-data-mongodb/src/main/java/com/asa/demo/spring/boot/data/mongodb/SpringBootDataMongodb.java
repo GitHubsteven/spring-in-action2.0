@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Arrays;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/14
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/14
+ * @descrition:
  */
 @SpringBootApplication
 public class SpringBootDataMongodb implements  CommandLineRunner {

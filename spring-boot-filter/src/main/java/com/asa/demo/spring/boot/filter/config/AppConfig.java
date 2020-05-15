@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
  * @Description:
- * @Date: Created at 17:52 2019/8/30.
+ * @date: Created at 17:52 2019/8/30.
  */
 @Configuration
 public class AppConfig {

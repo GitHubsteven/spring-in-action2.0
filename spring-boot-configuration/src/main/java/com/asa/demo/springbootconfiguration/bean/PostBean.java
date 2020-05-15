@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Description:
  * @Author asa.x
- * @Date: Created at 15:09 2020/3/5.
+ * @date: Created at 15:09 2020/3/5.
  */
 @Setter
 @Getter

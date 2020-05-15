@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @Description: Note the use of webEnvironment=RANDOM_PORT to start the server with a random port (useful to avoid conflicts in test environments),
  * and the injection of the port with @LocalServerPort. Also note that Spring Boot has provided a TestRestTemplate for you automatically,
  * and all you have to do is @Autowired it.
- * @Date: Created at 14:10 2019/8/27.
+ * @date: Created at 14:10 2019/8/27.
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

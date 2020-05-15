@@ -9,9 +9,9 @@ import org.springframework.data.redis.core.RedisHash;
 import java.io.Serializable;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/13
- * @Descrition: student model
+ * @author: asa.x
+ * @date: 2019/9/13
+ * @descrition: student model
  */
 @RedisHash("Student")
 @Setter

@@ -5,9 +5,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/12/17
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/12/17
+ * @descrition:
  */
 @Repository
 public interface SessionRepository extends CrudRepository<Session, Integer> {

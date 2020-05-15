@@ -19,6 +19,7 @@
         <module>spring-rest-api</module>
         <module>spring-apache-flume</module>
         <module>spring-service-inject</module>
+        <module>spring-cache-redis-custom</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

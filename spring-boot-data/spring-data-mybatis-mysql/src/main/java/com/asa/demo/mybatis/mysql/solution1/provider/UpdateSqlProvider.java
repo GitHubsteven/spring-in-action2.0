@@ -10,7 +10,7 @@ import java.util.stream.Stream;
  * @version 1.0.0 COPYRIGHT © 2001 - 2019 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Description:
  * @Author jet.xie
- * @Date: Created at 20:25 2019/10/23.
+ * @date: Created at 20:25 2019/10/23.
  */
 public class UpdateSqlProvider extends SqlProviderSupport {
     @Override

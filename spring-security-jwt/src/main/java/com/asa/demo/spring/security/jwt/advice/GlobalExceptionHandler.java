@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
  * @Description:
- * @Date: Created at 15:06 2019/8/9.
+ * @date: Created at 15:06 2019/8/9.
  */
 //@ControllerAdvice
 public class GlobalExceptionHandler {

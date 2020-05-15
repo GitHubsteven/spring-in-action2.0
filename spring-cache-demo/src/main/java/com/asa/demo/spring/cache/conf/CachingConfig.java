@@ -1,11 +1,8 @@
 package com.asa.demo.spring.cache.conf;
 
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCache;
 import org.springframework.cache.support.SimpleCacheManager;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.Arrays;
 
@@ -13,7 +10,7 @@ import java.util.Arrays;
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
  * @Description:
- * @Date: Created at 17:10 2019/8/27.
+ * @date: Created at 17:10 2019/8/27.
  */
 //@Configuration
 //@EnableCaching

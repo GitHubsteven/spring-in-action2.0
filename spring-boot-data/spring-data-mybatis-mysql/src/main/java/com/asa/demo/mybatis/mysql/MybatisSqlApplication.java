@@ -1,15 +1,13 @@
 package com.asa.demo.mybatis.mysql;
 
-import com.asa.demo.mybatis.mysql.dao.UserDao;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/10/7
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/10/7
+ * @descrition:
  */
 @SpringBootApplication
 public class MybatisSqlApplication implements CommandLineRunner {

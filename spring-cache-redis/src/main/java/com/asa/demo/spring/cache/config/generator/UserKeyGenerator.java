@@ -7,9 +7,9 @@ import org.springframework.util.StringUtils;
 import java.lang.reflect.Method;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/15
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/15
+ * @descrition:
  */
 @Component
 public class UserKeyGenerator implements KeyGenerator {

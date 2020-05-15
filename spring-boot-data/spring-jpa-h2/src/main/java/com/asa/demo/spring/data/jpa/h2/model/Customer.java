@@ -10,9 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/13
- * @Descrition: Here you have a Customer class with three attributes, the id, the firstName, and the lastName. You also have two constructors. The default constructor only exists for the sake of JPA. You won’t use it directly, so it is designated as protected.
+ * @author: asa.x
+ * @date: 2019/9/13
+ * @descrition: Here you have a Customer class with three attributes, the id, the firstName, and the lastName. You also have two constructors. The default constructor only exists for the sake of JPA. You won’t use it directly, so it is designated as protected.
  * The other constructor is the one you’ll use to create instances of Customer to be saved to the database.
  */
 @Entity

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
  * @Description:
- * @Date: Created at 16:38 2019/9/20.
+ * @date: Created at 16:38 2019/9/20.
  */
 @RestController
 @RequestMapping("/book")

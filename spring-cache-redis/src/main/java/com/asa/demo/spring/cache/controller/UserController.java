@@ -3,17 +3,15 @@ package com.asa.demo.spring.cache.controller;
 import com.asa.demo.spring.cache.model.mysql.UserModel;
 import com.asa.demo.spring.cache.repository.mysql.UserRepository;
 import com.asa.demo.spring.cache.support.ComUser;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @Authoer: asa.x
- * @Date: 2019/9/15
- * @Descrition:
+ * @author: asa.x
+ * @date: 2019/9/15
+ * @descrition:
  */
 @RestController
 @RequestMapping(value = "/user")
