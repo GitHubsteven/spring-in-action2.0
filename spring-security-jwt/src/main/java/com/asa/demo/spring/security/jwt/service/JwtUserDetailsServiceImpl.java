@@ -16,8 +16,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date: Created at 10:09 2019/8/30.
  */
 @Service
-public class JwtUserDetailsService implements UserDetailsService {
+public class JwtUserDetailsServiceImpl implements UserDetailsService {
 
+    @Override
     public UserDetails loadUserByUsername(String username) {
         Map<String, UserDetails> users = new ConcurrentHashMap<>();
         BCryptPasswordEncoder pwdEncoder = new BCryptPasswordEncoder();

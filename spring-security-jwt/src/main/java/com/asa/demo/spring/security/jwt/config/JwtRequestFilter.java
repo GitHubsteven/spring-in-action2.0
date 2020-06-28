@@ -1,6 +1,6 @@
 package com.asa.demo.spring.security.jwt.config;
 
-import com.asa.demo.spring.security.jwt.service.JwtUserDetailsService;
+import com.asa.demo.spring.security.jwt.service.JwtUserDetailsServiceImpl;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,7 +25,7 @@ import java.io.IOException;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
     @Autowired
-    private JwtUserDetailsService jwtUserDetailsService;
+    private JwtUserDetailsServiceImpl jwtUserDetailsService;
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 

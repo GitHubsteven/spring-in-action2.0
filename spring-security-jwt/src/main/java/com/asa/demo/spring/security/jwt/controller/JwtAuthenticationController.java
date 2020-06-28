@@ -3,7 +3,7 @@ package com.asa.demo.spring.security.jwt.controller;
 import com.asa.demo.spring.security.jwt.bean.JwtRequest;
 import com.asa.demo.spring.security.jwt.bean.JwtResponse;
 import com.asa.demo.spring.security.jwt.config.JwtTokenUtil;
-import com.asa.demo.spring.security.jwt.service.JwtUserDetailsService;
+import com.asa.demo.spring.security.jwt.service.JwtUserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -30,7 +30,7 @@ public class JwtAuthenticationController {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
     @Autowired
-    private JwtUserDetailsService userDetailsService;
+    private JwtUserDetailsServiceImpl userDetailsService;
 
     @PostMapping(value = "/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
