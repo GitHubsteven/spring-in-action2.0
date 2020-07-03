@@ -66,6 +66,27 @@ public class HttpRequestTest {
 and the injection of the port with @LocalServerPort.Also note that Spring Boot has provided a TestRestTemplate for you automatically, 
 and all you have to do is @Autowired it.
 
+consult the following code if header needed to be set:
+```
+    @Before
+    public void setUp() {
+        //set header user info
+        testRestTemplate.getRestTemplate()
+                .setInterceptors(Collections.singletonList((request, body, execution) -> {
+                    request.getHeaders()
+                            .add("X-Requested-User", "{\"companyId\":10125,\"username\":\"user\",\"language\":\"CN\"}");
+                    return execution.execute(request, body);
+                }));
+    }
+```
+or
+```
+HttpHeaders headers = new HttpHeaders();
+headers.add("your_header", "its_value");
+template.exchange(base, HttpMethod.GET, new HttpEntity<>(headers), Page.class);
+```
+
+
 2.3 HttpRequest test by mockMvc
 
 See the http [HttpRequestTest.java](../src/test/java/java/com/asa/demo/spring/boot/test/service/ApplicationTest.java)
