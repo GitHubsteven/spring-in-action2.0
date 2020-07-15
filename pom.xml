@@ -21,6 +21,7 @@
         <module>spring-service-inject</module>
         <module>spring-cache-redis-custom</module>
         <module>spring-shiro</module>
+        <module>spring-api-mock</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
