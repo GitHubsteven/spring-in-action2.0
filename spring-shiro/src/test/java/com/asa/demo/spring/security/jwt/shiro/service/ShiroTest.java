@@ -6,8 +6,12 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.config.IniSecurityManagerFactory;
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.realm.Realm;
+import org.apache.shiro.realm.RealmFactory;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Factory;
+import org.apache.shiro.util.ThreadContext;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -36,5 +40,11 @@ public class ShiroTest extends ApplicationBaseTest {
         Assert.assertTrue(subject.isAuthenticated()); //断言用户已经登录
         //6、退出
         subject.logout();
+    }
+
+
+    @After
+    public void tearDown() {
+        ThreadContext.unbindSubject();
     }
 }
