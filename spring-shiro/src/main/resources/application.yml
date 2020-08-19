@@ -1,0 +1,10 @@
+server:
+  port: 9200
+  servlet:
+    session:
+      timeout: 25200
+
+spring:
+  application:
+    name: SpringShiro
+
