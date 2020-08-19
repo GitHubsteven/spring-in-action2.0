@@ -51,8 +51,8 @@ public class BlogMapperTest extends BaseTest {
     @Test
     public void testInsertModel() {
         BlogModel blogModel = new BlogModel();
-        blogModel.setTitle("insert by custom mapper common api");
-        blogModel.setAuthor("BlogMapperTest");
+        blogModel.setTitle("will i get id without option?");
+        blogModel.setAuthor("asa.x-test");
 
         Integer insert = blogMapper.insert(blogModel);
         System.out.println(insert);

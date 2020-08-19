@@ -2,7 +2,6 @@ package com.asa.demo.spring.boot.mysql.service;
 
 import com.asa.demo.spring.boot.mysql.model.User;
 import com.asa.demo.spring.boot.mysql.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,8 +11,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
+
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     /**
      * 添加用户

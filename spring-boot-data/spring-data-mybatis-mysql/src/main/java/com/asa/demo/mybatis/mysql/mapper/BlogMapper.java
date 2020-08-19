@@ -19,7 +19,6 @@ import java.util.List;
 @Mapper
 public interface BlogMapper extends BaseMapper<BlogModel> {
     @SelectProvider(type = BlogSqlProvider.class, method = "selectById")
-//    @ResultMap("blogMap")
     BlogModel getById(@Param("id") long id);
 
     /**
