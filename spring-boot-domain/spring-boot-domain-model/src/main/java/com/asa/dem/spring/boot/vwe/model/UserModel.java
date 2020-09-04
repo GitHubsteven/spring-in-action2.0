@@ -1,14 +1,14 @@
 package com.asa.dem.spring.boot.vwe.model;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.asa.dem.spring.boot.common.BaseModel;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author asa.x
@@ -18,7 +18,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("user")
-public class UserModel extends BaseModel {
+public class UserModel extends BaseModel<Integer> {
 
     private static final long serialVersionUID = 1L;
 

@@ -1,5 +1,6 @@
 package com.asa.demo.mybatis.mysql.mapper;
 
+import com.asa.dem.spring.boot.vwe.bean.BlogTreeBean;
 import com.asa.demo.mybatis.mysql.model.BlogModel;
 import com.asa.demo.mybatis.mysql.model.CountUser;
 import com.asa.demo.mybatis.mysql.solution1.provider.BlogSqlProvider;
@@ -33,4 +34,12 @@ public interface BlogMapper extends BaseMapper<BlogModel> {
 
     @SelectProvider(type = BlogSqlProvider.class, method = "countUserBlog")
     List<CountUser> listUserBlog();
+
+//    /**
+//     * 博客相关信息
+//     *
+//     * @param blogId
+//     * @return
+//     */
+//    BlogTreeBean blogTree(@Param("blogId") int blogId);
 }

@@ -1,5 +1,6 @@
 package com.asa.demo.mybatis.mysql;
 
+import com.asa.dem.spring.boot.vwe.bean.BlogTreeBean;
 import com.asa.demo.mybatis.mysql.mapper.BlogMapper;
 import com.asa.demo.mybatis.mysql.model.BlogModel;
 import com.asa.demo.mybatis.mysql.model.CountUser;
@@ -56,5 +57,11 @@ public class BlogMapperTest extends BaseTest {
 
         Integer insert = blogMapper.insert(blogModel);
         System.out.println(insert);
+    }
+
+    @Test
+    public void testBlogTree() {
+//        BlogTreeBean blogTree = blogMapper.blogTree(11);
+//        System.out.println(blogTree.getBlog());
     }
 }

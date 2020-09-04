@@ -13,8 +13,7 @@ import lombok.*;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class BlogModel extends BaseModel<Long> {
-    private Long id;
+public class BlogModel extends BaseModel<Integer> {
     private String title;
     private String author;
 }
