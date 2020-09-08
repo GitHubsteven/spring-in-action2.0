@@ -1,4 +1,4 @@
-package com.asa.demo.spring.message.rabbitmq.demo.part3;
+package com.asa.demo.spring.message.rabbitmq.demo.part3.publish.subscribe;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

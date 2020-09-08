@@ -1,4 +1,4 @@
-package com.asa.demo.spring.message.rabbitmq.demo.part1;
+package com.asa.demo.spring.message.rabbitmq.demo.part1.basic;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -36,8 +36,9 @@ public class Receiver {
                 channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
             }
         };
-        channel.basicConsume(QUEUE_NAME, false, deliverCallback, consumerTag -> {
+        String cTag = channel.basicConsume(QUEUE_NAME, false, deliverCallback, consumerTag -> {
         });
+        channel.basicCancel(cTag);
     }
 
     private static void doWork(String task) {

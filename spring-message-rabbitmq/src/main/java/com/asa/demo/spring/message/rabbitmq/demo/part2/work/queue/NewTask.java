@@ -1,4 +1,4 @@
-package com.asa.demo.spring.message.rabbitmq.demo.part2;
+package com.asa.demo.spring.message.rabbitmq.demo.part2.work.queue;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;

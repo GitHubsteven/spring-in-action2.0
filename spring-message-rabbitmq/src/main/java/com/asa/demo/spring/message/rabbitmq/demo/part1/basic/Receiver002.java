@@ -1,4 +1,4 @@
-package com.asa.demo.spring.message.rabbitmq.demo.part2;
+package com.asa.demo.spring.message.rabbitmq.demo.part1.basic;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -14,23 +14,20 @@ import java.nio.charset.StandardCharsets;
  * @description
  * @copyright COPYRIGHT © 2014 - 2020 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  **/
-public class Worker {
-    private static final String TASK_QUEUE_NAME = "task_queue";
+public class Receiver002 {
+    private final static String QUEUE_NAME = "hello";
 
-    public static void main(String[] argv) throws Exception {
+    public static void main(String[] args) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
-        final Connection connection = factory.newConnection();
-        final Channel channel = connection.createChannel();
-
-        channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
+        // To receive the message  continuous, there is  no try resource
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+        channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
-
-        channel.basicQos(1);
-
+        // define the message consumer
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
-
             System.out.println(" [x] Received '" + message + "'");
             try {
                 doWork(message);
@@ -39,20 +36,18 @@ public class Worker {
                 channel.basicAck(delivery.getEnvelope().getDeliveryTag(), false);
             }
         };
-        channel.basicConsume(TASK_QUEUE_NAME, false, deliverCallback, consumerTag -> {
+        channel.basicConsume(QUEUE_NAME, false, deliverCallback, consumerTag -> {
         });
     }
 
     private static void doWork(String task) {
-        for (char ch : task.toCharArray()) {
-            if (ch == '.') {
-                try {
-                    Thread.sleep(10 * 1000);
-                } catch (InterruptedException _ignored) {
-                    Thread.currentThread().interrupt();
-                }
+        int idx = Integer.parseInt(task.split("_")[1]);
+        if (idx % 2 == 1) {
+            try {
+                Thread.sleep(10 * 1000);
+            } catch (InterruptedException _ignored) {
+                Thread.currentThread().interrupt();
             }
         }
     }
-
 }
