@@ -31,6 +31,12 @@ public class PublisherConfirms {
         return cf.newConnection();
     }
 
+    public static void main(String[] args) throws Exception {
+        publishMessagesIndividually();
+        publishMessagesInBatch();
+        handlePublishConfirmsAsynchronously();
+    }
+
     static void publishMessagesIndividually() throws Exception {
         try (Connection connection = createConnection()) {
             Channel channel = connection.createChannel();
@@ -53,7 +59,7 @@ public class PublisherConfirms {
         }
     }
 
-    static void publishMessageInBatch() throws Exception {
+    static void publishMessagesInBatch() throws Exception {
         try (Connection connection = createConnection()) {
             Channel channel = connection.createChannel();
 
