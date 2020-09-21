@@ -24,6 +24,7 @@
         <module>spring-api-mock</module>
         <module>spring-base-thread</module>
         <module>spring-message-rabbitmq</module>
+        <module>spring-boot-webservice</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -1,5 +1,5 @@
-server:
-  port: 8333
+#server:
+#  port: 8333
 
 #com.mysql.jdbc.Driver
 spring:

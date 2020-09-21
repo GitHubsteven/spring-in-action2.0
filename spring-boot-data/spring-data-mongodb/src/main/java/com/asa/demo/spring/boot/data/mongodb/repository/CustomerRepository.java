@@ -26,4 +26,5 @@ public interface CustomerRepository extends MongoRepository<Customer, Long> {
      * @return 用户
      */
     List<Customer> findByLastName(String lastName);
+
 }

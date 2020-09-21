@@ -37,11 +37,18 @@ public interface UserDao {
      */
     UserModel getById(@Param("id") long id);
 
-
+    /**
+     * 通过id来更新name
+     *
+     * @param model 更新信息
+     * @return 更新信息
+     */
     @Update({"<script>",
-            "update user",
-            "   <set>",
-            "       <if test='model.title !=null'> title like #{model.title}",
-            "</script"})
-    int updateNames(@Param("model") BlogModel model);
+            "update Author",
+            "  <set>",
+            "    <if test='model.author != null'>author=#{model.author}</if>",
+            "  </set>",
+            "where id=#{model.id}",
+            "</script>"})
+    int updateName(@Param("model") BlogModel model);
 }
