@@ -32,7 +32,15 @@
         总结： 在利用线程池来管理多线程的场景中，虽然跨方法使用私有成员变量会增加影响因素，但是在实际上，方法在一个线程中运行，只要我们能保证线程安全
         ，那么就可以保证数据的安全性了。
         
-4. 如果threadLocal 无法保证的话，那么该用干什么方式来保证。
+4. 如果threadLocal 无法保证的话，那么该用什么方式来保证。
 
+##### 基本概念
 
-场景设计：
+1. CountDownLatch: 保证让所有子线程执行完毕，再执行主线程
+参考文档：[java-countdown-latch](https://www.baeldung.com/java-countdown-latch)
+> Naturally “Latch released” will always be the last output – as it's dependant on the CountDownLatch releasing.
+  
+> Note that if we didn't call await(), we wouldn't be able to guarantee the ordering of the execution of the threads, 
+>so the test would randomly fail.
+
+2. block each child thread until all the others have started
