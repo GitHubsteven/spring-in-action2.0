@@ -2,7 +2,7 @@
 // 此文件是由 JavaTM Architecture for XML Binding (JAXB) 引用实现 v2.2.7 生成的
 // 请访问 <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // 在重新编译源模式时, 对此文件的所有修改都将丢失。
-// 生成时间: 2020.09.21 时间 07:28:29 PM CST 
+// 生成时间: 2020.09.22 时间 10:23:31 AM CST 
 //
 
 
@@ -41,8 +41,10 @@ public class GetCountryRequest {
     /**
      * 获取name属性的值。
      *
-     * @return possible object is
-     * {@link String }
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
      */
     public String getName() {
         return name;
@@ -51,8 +53,10 @@ public class GetCountryRequest {
     /**
      * 设置name属性的值。
      *
-     * @param value allowed object is
-     *              {@link String }
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
      */
     public void setName(String value) {
         this.name = value;

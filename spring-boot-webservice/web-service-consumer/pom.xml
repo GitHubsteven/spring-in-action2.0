@@ -11,5 +11,55 @@
 
     <artifactId>web-service-consumer</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web-services</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
 
+    <build>
+        <plugins>
+            <!--            <plugin>-->
+            <!--                <groupId>org.jvnet.jaxb2.maven2</groupId>-->
+            <!--                <artifactId>maven-jaxb2-plugin</artifactId>-->
+            <!--                <version>0.14.0</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <goals>-->
+            <!--                            <goal>generate</goal>-->
+            <!--                        </goals>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--                <configuration>-->
+            <!--                    <schemaLanguage>WSDL</schemaLanguage>-->
+            <!--                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>-->
+            <!--                    <generatePackage>com.asa.demo.spring.webservice.consumer.wsdl</generatePackage>-->
+            <!--                    <schemas>-->
+            <!--                        <schema>-->
+            <!--                            <url>http://localhost:9200/ws/countries.wsdl</url>-->
+            <!--                        </schema>-->
+            <!--                    </schemas>-->
+            <!--                    &lt;!&ndash;                    <bindings>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        <binding>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            <fileset>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                &lt;!&ndash; Defaults to bindingDirectory. &ndash;&gt;&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                <directory>${basedir}/src/main/resources</directory>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                &lt;!&ndash; Defaults to bindingIncludes. &ndash;&gt;&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                <includes>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                    <include>*.xjb</include>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                                </includes>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                            </fileset>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                        </binding>&ndash;&gt;-->
+            <!--                    &lt;!&ndash;                    </bindings>&ndash;&gt;-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+        </plugins>
+    </build>
 </project>

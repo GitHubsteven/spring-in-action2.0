@@ -1,17 +1,14 @@
 //
-// 此文件是由 JavaTM Architecture for XML Binding (JAXB) 引用实现 v2.2.7 生成的
-// 请访问 <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// 此文件是由 JavaTM Architecture for XML Binding (JAXB) 引用实现 v2.3.0 生成的
+// 请访问 <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // 在重新编译源模式时, 对此文件的所有修改都将丢失。
-// 生成时间: 2020.09.22 时间 10:23:31 AM CST 
+// 生成时间: 2020.09.22 时间 10:34:49 AM CST 
 //
 
 
-package com.asa.demo.spring.webservice.productor.wsdl;
+package com.asa.demo.spring.webservice.consumer.wsdl;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 
 /**
@@ -20,18 +17,18 @@ import javax.xml.bind.annotation.XmlType;
  * <p>以下模式片段指定包含在此类中的预期内容。
  *
  * <pre>
- * &lt;complexType name="country">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="population" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="capital" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="currency" type="{http://asa.com/demo/spring/webservice/productor/wsdl}currency"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="country"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="population" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="capital" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="currency" type="{http://asa.com/demo/spring/webservice/productor/wsdl}currency"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -49,15 +46,14 @@ public class Country {
     @XmlElement(required = true)
     protected String capital;
     @XmlElement(required = true)
+    @XmlSchemaType(name = "string")
     protected Currency currency;
 
     /**
      * 获取name属性的值。
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -66,10 +62,8 @@ public class Country {
     /**
      * 设置name属性的值。
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -77,7 +71,6 @@ public class Country {
 
     /**
      * 获取population属性的值。
-     *
      */
     public int getPopulation() {
         return population;
@@ -85,7 +78,6 @@ public class Country {
 
     /**
      * 设置population属性的值。
-     *
      */
     public void setPopulation(int value) {
         this.population = value;
@@ -94,10 +86,8 @@ public class Country {
     /**
      * 获取capital属性的值。
      *
-     * @return
-     *     possible object is
-     *     {@link String }
-     *
+     * @return possible object is
+     * {@link String }
      */
     public String getCapital() {
         return capital;
@@ -106,10 +96,8 @@ public class Country {
     /**
      * 设置capital属性的值。
      *
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setCapital(String value) {
         this.capital = value;
@@ -118,10 +106,8 @@ public class Country {
     /**
      * 获取currency属性的值。
      *
-     * @return
-     *     possible object is
-     *     {@link Currency }
-     *
+     * @return possible object is
+     * {@link Currency }
      */
     public Currency getCurrency() {
         return currency;
@@ -130,10 +116,8 @@ public class Country {
     /**
      * 设置currency属性的值。
      *
-     * @param value
-     *     allowed object is
-     *     {@link Currency }
-     *
+     * @param value allowed object is
+     *              {@link Currency }
      */
     public void setCurrency(Currency value) {
         this.currency = value;
