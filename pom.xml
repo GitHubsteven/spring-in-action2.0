@@ -23,8 +23,8 @@
         <module>spring-shiro</module>
         <module>spring-api-mock</module>
         <module>spring-base-thread</module>
-        <module>spring-message-rabbitmq</module>
         <module>spring-boot-webservice</module>
+        <module>spring-boot-mesage</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
