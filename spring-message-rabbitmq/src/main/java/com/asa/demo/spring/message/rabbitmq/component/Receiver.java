@@ -24,4 +24,8 @@ public class Receiver {
         return latch;
     }
 
+    public void handleMessage(String message) {
+        System.out.println("Received <" + message + ">");
+        latch.countDown();
+    }
 }
