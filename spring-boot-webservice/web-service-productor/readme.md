@@ -1,18 +1,19 @@
-WebService
+### WebService
 
-项目参考 web-service-productor
+项目参考 [web-service-productor](https://github.com/GitHubsteven/spring-in-action2.0/tree/master/spring-boot-webservice/web-service-productor)
 
-参考文档
+#### 参考文档
+1. [producing-web-service/](https://spring.io/guides/gs/producing-web-service/)
+2. [consuming-web-service](https://spring.io/guides/gs/consuming-web-service/#initial)
 
-producing-web-service/
-consuming-web-service
-什么是WebService？
+#### 什么是WebService？
+[What are Web Services?](https://www.tutorialspoint.com/webservices/what_are_web_services.htm)
 
-What are Web Services?
 
-创建一个WebService
 
-定义.xsd文件，在其中，定义java bean
+#### 创建一个WebService
+1. 定义.xsd文件，在其中，定义java bean
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://asa.com/demo/spring/webservice/productor/wsdl"
            targetNamespace="http://asa.com/demo/spring/webservice/productor/wsdl" elementFormDefault="qualified">
@@ -35,8 +36,9 @@ What are Web Services?
     ...
     </xs:simpleType>
 </xs:schema>
+```
 利用的插件，在pom.xml文件中：
-
+```
 <plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>jaxb2-maven-plugin</artifactId>
@@ -55,17 +57,23 @@ What are Web Services?
         <clearOutputDir>false</clearOutputDir>
     </configuration>
 </plugin>
-compile module生成对应的bean，文件目录根据xsd.targetNamespace来生成
+```
 
+compile module生成对应的bean，文件目录根据xsd.targetNamespace来生成
+```
  targetNamespace="http://asa.com/demo/spring/webservice/productor/wsdl"
-地址倒置com.asa，路径顺序相加：demo.spring.webservice.productor.wsdl 最终地址为com.asa.demo.spring.webservice.productor.wsdl
+```
+地址倒置com.asa，路径顺序相加：demo.spring.webservice.productor.wsdl
+最终地址为com.asa.demo.spring.webservice.productor.wsdl
 
 ok，bean生成后，我们需要定义repository，来管理数据，这里当然是模拟数据
 
-生成repository
+
+##### 生成repository
 
 模拟数据，这里的数据自定义
 
+```
 @Component
 public class CountryRepository {
 
@@ -93,11 +101,14 @@ public class CountryRepository {
     public List<Country> listCountry() {
         return new ArrayList<>(countries.values());
     }
-定义endpoint
+```
+
+##### 定义endpoint
 
 endpoint，类似于controller中的api接口。
 
-为了使用wsdl的服务，我们需要导入依赖：
+0. 为了使用wsdl的服务，我们需要导入依赖：
+```
 <dependency>
     <groupId>wsdl4j</groupId>
     <artifactId>wsdl4j</artifactId>
@@ -107,10 +118,14 @@ endpoint，类似于controller中的api接口。
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-web-services</artifactId>
 </dependency>
-定义命名空间的url，值是先前xsd文件中的targetNameSpace
+```
+1. 定义命名空间的url，值是先前xsd文件中的targetNameSpace
+```
  // http://asa.com/demo/spring/webservice/productor/wsdl
  private static final String NAMESPACE_URI = WSConstant.TARGET_NAME_SPACE;
-定义endpoint，指定接口的localPort，想当于Rest api中的path
+ ```
+2. 定义endpoint，指定接口的localPort，想当于Rest api中的path
+```
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")
     @ResponsePayload
     public GetCountryResponse getCountry(@RequestPayload GetCountryRequest request) {
@@ -119,7 +134,9 @@ endpoint，类似于controller中的api接口。
 
         return response;
     }
-自定义wsdl等相关访问路径
+```
+3. 自定义wsdl等相关访问路径
+```
 package com.asa.demo.spring.webservice.productor.config;
 
 import com.asa.demo.spring.webservice.productor.bean.WSConstant;
@@ -187,15 +204,20 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return wsdl11Definition;
     }
 }
-配置项目的端口，启动项目
+```
 
+配置项目的端口，启动项目
+```
 server.port=9200
 
 spring.application.name=WSProductor
-访问： http://localhost:9200/ws/countries.wsdl 可以获取上面配置的wsdl
+```
+
+访问： http://localhost:9200/ws/countries.wsdl
+可以获取上面配置的wsdl
 
 发送请求
-
+```
 curl --location --request POST 'http://localhost:9200/ws/countries' \
 --header 'Content-type: text/xml' \
 --data-raw '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
@@ -207,8 +229,9 @@ curl --location --request POST 'http://localhost:9200/ws/countries' \
         </gs:getCountryRequest>
     </soapenv:Body>
 </soapenv:Envelope>'
+```
 可以获取对应的返回结果：
-
+```
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
     <SOAP-ENV:Header/>
     <SOAP-ENV:Body>
@@ -222,3 +245,4 @@ curl --location --request POST 'http://localhost:9200/ws/countries' \
         </ns2:getCountryResponse>
     </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
+```
