@@ -20,4 +20,7 @@ friends.find(new BasicDBObject("age",new BasicDBObject("$gt",18)))
 friends.find("{age: {$gt: 18}}").as(Friend.class)
 ```
 
-##### 分页
+#### 特征
+1. jongo更多数据基于string类型，然而由于jackson的存在，进行映射转化也是非常简单的。
+具体的可以参考JongoServiceImpl.java
+2. jongo更加手动话，熟悉mongo脚本会对使用更有帮助

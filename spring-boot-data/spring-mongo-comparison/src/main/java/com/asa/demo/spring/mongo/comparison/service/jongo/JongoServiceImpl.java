@@ -42,6 +42,7 @@ public class JongoServiceImpl implements IMongoService {
         return customer.get_id();
     }
 
+    @Override
     public Customer get(String id) {
         return customers.findOne(new ObjectId(id)).as(Customer.class);
     }
