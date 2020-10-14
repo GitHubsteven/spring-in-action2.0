@@ -3,12 +3,12 @@ package com.asa.demo.spring.mongo.comparison.service.driver;
 import com.asa.demo.spring.mongo.comparison.model.Customer;
 import com.asa.demo.spring.mongo.comparison.service.IMongoService;
 import com.asa.demo.spring.mongo.comparison.utils.JacksonUtils;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,19 +23,15 @@ import java.util.List;
  **/
 @Service
 public class JavaDriverServiceImpl implements IMongoService {
-    private final MongoCollection<Document> collection;
+    private final MongoCollection<Document> customerCollection;
 
-    public JavaDriverServiceImpl() {
-        MongoClientURI connectionString = new MongoClientURI("mongodb://localhost:27017");
-        MongoClient mongoClient = new MongoClient(connectionString);
-        MongoDatabase database = mongoClient.getDatabase("spring-data");
-        collection = database.getCollection("customer");
-
+    public JavaDriverServiceImpl(MongoDatabase database) {
+        customerCollection = database.getCollection("customer");
     }
 
     @Override
     public List<Customer> listAllCustomers() {
-        MongoCursor<Document> iterator = collection.find().iterator();
+        MongoCursor<Document> iterator = customerCollection.find().iterator();
         List<Customer> customers = new ArrayList<>();
         while (iterator.hasNext()) {
             customers.add(JacksonUtils.json2Bean(iterator.next().toJson(), Customer.class));
@@ -43,12 +39,29 @@ public class JavaDriverServiceImpl implements IMongoService {
         return customers;
     }
 
-    public void createCustomer(Customer customer) {
+    @Override
+    public String create(Customer customer) {
         Document doc = new Document("firstName", customer.getFirstName())
                 .append("lastName", customer.getLastName());
 //                .append("count", 1)
 //                .append("versions", Arrays.asList("v3.2", "v3.0", "v2.6"))
 //                .append("info", new Document("x", 203).append("y", 102));
-        collection.insertOne(doc);
+        customerCollection.insertOne(doc);
+        ObjectId id = doc.getObjectId("_id");
+        return id.toString();
+    }
+
+    @Override
+    public Customer get(String id) {
+        Document doc = customerCollection.find(BasicDBObject.parse(String.format("{_id:{ \"$oid\" : \"%s\" }}", id))).first();
+        return doc == null ? null : fromDoc2customer(doc);
+    }
+
+    public Customer fromDoc2customer(Document doc) {
+        Customer customer = new Customer();
+        customer.set_id(doc.getObjectId("_id").toString());
+        customer.setFirstName(doc.getString("firstName"));
+        customer.setLastName(doc.getString("lastName"));
+        return customer;
     }
 }

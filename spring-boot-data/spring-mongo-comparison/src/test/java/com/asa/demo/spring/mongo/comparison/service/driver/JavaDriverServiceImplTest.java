@@ -2,11 +2,8 @@ package com.asa.demo.spring.mongo.comparison.service.driver;
 
 import com.asa.demo.spring.mongo.comparison.BaseTest;
 import com.asa.demo.spring.mongo.comparison.model.Customer;
-import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
 
 public class JavaDriverServiceImplTest extends BaseTest {
 
@@ -20,9 +17,14 @@ public class JavaDriverServiceImplTest extends BaseTest {
 
     @Test
     public void testCreate() {
-        Customer customer = new Customer("data", "mongodb");
-        javaDriverService.createCustomer(customer);
-        List<Customer> customers = javaDriverService.listAllCustomers();
-        Assert.assertEquals(4, customers.size());
+        Customer customer = new Customer("id_test2", "mongodb");
+        String _id = javaDriverService.create(customer);
+        System.out.println("---->_id: " + _id);
+    }
+
+    @Test
+    public void testGet() {
+        Customer customer = javaDriverService.get("5f86c6356ba6c81cd8c15210");
+        System.out.println(customer.toString());
     }
 }

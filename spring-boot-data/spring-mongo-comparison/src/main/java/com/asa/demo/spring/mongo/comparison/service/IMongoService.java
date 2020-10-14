@@ -13,4 +13,8 @@ import java.util.List;
  **/
 public interface IMongoService {
     List<Customer> listAllCustomers();
+
+    String create(Customer customer);
+
+    Customer get(String id);
 }

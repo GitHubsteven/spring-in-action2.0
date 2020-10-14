@@ -2,7 +2,7 @@ package com.asa.demo.spring.mongo.comparison.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
+import org.jongo.marshall.jackson.oid.MongoObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -14,8 +14,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Document(collection = "customer")
 public class Customer {
-    @Id
-    public String id;
+    @MongoObjectId
+    public String _id;
     private String firstName;
     private String lastName;
 
@@ -31,7 +31,7 @@ public class Customer {
     public String toString() {
         return String.format(
                 "Customer[id=%s, firstName='%s', lastName='%s']",
-                id, firstName, lastName);
+                _id, firstName, lastName);
     }
 
 }
