@@ -1,6 +1,7 @@
 package com.asa.demo.spring.mongo.comparison.service.jongo;
 
 import com.asa.demo.spring.mongo.comparison.BaseTest;
+import com.asa.demo.spring.mongo.comparison.model.Address;
 import com.asa.demo.spring.mongo.comparison.model.Customer;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +21,14 @@ public class JongoServiceImplTest extends BaseTest {
 
     @Test
     public void create() {
-        String _id = jongoService.create(new Customer("asa", "x"));
+        Address address = new Address();
+        address.setProvince("sh");
+        address.setCity("sh");
+        address.setArea("zhangjiangzhen");
+        Customer customer = new Customer("ppx", "x");
+        customer.setAddress(address);
+        String _id = jongoService.create(customer);
+
         System.out.println(_id);
     }
 

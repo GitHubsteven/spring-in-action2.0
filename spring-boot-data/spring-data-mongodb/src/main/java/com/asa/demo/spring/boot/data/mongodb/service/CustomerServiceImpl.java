@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class CustomerServiceImpl implements IService<Customer, CustomerRepository> {
+
     @Override
     public void save(Customer model) {
 

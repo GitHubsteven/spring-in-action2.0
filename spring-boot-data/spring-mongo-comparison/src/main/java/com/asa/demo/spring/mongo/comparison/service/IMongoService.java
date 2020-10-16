@@ -1,7 +1,5 @@
 package com.asa.demo.spring.mongo.comparison.service;
 
-import com.asa.demo.spring.mongo.comparison.model.Customer;
-
 import java.util.List;
 
 /**
@@ -11,10 +9,12 @@ import java.util.List;
  * @description
  * @copyright COPYRIGHT © 2014 - 2020 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  **/
-public interface IMongoService {
-    List<Customer> listAllCustomers();
+public interface IMongoService<T> {
 
-    String create(Customer customer);
+    List<T> listAllCustomers();
 
-    Customer get(String id);
+    String create(T customer);
+
+    T get(String id);
+
 }

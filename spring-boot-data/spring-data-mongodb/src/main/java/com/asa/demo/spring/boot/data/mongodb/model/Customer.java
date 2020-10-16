@@ -2,6 +2,7 @@ package com.asa.demo.spring.boot.data.mongodb.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.data.annotation.Id;
  */
 @Setter
 @Getter
+@ToString
 public class Customer {
 
     @Id
@@ -19,7 +21,8 @@ public class Customer {
     public String firstName;
     public String lastName;
 
-    public Customer() {}
+    public Customer() {
+    }
 
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;

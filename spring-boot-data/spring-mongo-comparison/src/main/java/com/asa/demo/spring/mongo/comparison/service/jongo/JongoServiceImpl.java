@@ -7,11 +7,12 @@ import org.bson.types.ObjectId;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 import org.jongo.MongoCursor;
+import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
+import static com.asa.demo.spring.mongo.comparison.utils.MongoUtils.cursor2List;
 
 /**
  * @author rongbin.xie
@@ -21,10 +22,10 @@ import java.util.List;
  * @copyright COPYRIGHT © 2014 - 2020 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  **/
 @Service
-public class JongoServiceImpl implements IMongoService {
+public class JongoServiceImpl implements IMongoService<Customer> {
     private final MongoCollection customers;
 
-    public JongoServiceImpl(MongoClient client) {
+    public JongoServiceImpl(MongoClient client, MongoProperties mongoProperties) {
         Jongo jongo = new Jongo(client.getDB("spring-data"));
         this.customers = jongo.getCollection("customer");
     }
@@ -56,13 +57,8 @@ public class JongoServiceImpl implements IMongoService {
         return cursor2List(page);
     }
 
-
-    private <T> List<T> cursor2List(MongoCursor<T> cursor) {
-        List<T> list = new ArrayList<>();
-        Iterator<T> iterator = cursor.iterator();
-        while (iterator.hasNext()) {
-            list.add(iterator.next());
-        }
-        return list;
+    public List<Customer> aggregate() {
+        customers.distinct("lastName").as(String.class);
+        return null;
     }
 }

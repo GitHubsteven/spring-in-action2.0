@@ -1,5 +1,6 @@
 package com.asa.demo.spring.mongo.comparison.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.jongo.marshall.jackson.oid.MongoObjectId;
@@ -12,12 +13,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Setter
 @Getter
+@AllArgsConstructor
 @Document(collection = "customer")
 public class Customer {
     @MongoObjectId
     public String _id;
     private String firstName;
     private String lastName;
+    private Address address;
 
     public Customer() {
     }

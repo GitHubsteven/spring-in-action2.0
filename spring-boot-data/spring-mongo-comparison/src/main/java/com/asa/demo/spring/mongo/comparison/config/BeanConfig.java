@@ -1,8 +1,8 @@
 package com.asa.demo.spring.mongo.comparison.config;
 
 import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoDatabase;
+import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,14 +16,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanConfig {
     @Bean
-    public static MongoClient getMongoClient() {
-        MongoClientURI connectionString = new MongoClientURI("mongodb://localhost:27017");
-        return new MongoClient(connectionString);
-    }
-
-
-    @Bean
-    public static MongoDatabase getDatabase(MongoClient client) {
-        return client.getDatabase("spring-data");
+    public static MongoDatabase getDatabase(MongoClient client, MongoProperties mongoProperties) {
+        return client.getDatabase(mongoProperties.getDatabase());
     }
 }

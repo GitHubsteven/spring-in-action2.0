@@ -22,7 +22,7 @@ import java.util.List;
  * @copyright COPYRIGHT © 2014 - 2020 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  **/
 @Service
-public class JavaDriverServiceImpl implements IMongoService {
+public class JavaDriverServiceImpl implements IMongoService<Customer> {
     private final MongoCollection<Document> customerCollection;
 
     public JavaDriverServiceImpl(MongoDatabase database) {
