@@ -7,24 +7,19 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
- * <p>
- *
- * </p>
- *
- * @author asa.x
- * @since 2019-10-25
- */
+ * @author rongbin.xie
+ * @version 1.0.0
+ * @date 2020/10/19
+ * @description
+ * @copyright COPYRIGHT © 2014 - 2020 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
+ **/
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
-@TableName("user")
-public class UserModel extends BaseModel<Integer> {
+@TableName("vwe_tags")
+public class TagModel extends BaseModel<Integer> {
 
-    private static final long serialVersionUID = 1L;
+    private Long commentsId;
 
     private String name;
-
-    private String email;
-
-    private UserModel bak;
 }

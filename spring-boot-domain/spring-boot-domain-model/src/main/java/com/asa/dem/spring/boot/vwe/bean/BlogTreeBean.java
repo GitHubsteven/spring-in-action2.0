@@ -6,7 +6,7 @@ import com.asa.dem.spring.boot.vwe.model.UserModel;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Set;
+import java.util.List;
 
 /**
  * @author rongbin.xie
@@ -18,7 +18,9 @@ import java.util.Set;
 @Setter
 @Getter
 public class BlogTreeBean {
+    private long blogId;
     private BlogModel blog;
-    private UserModel user;
-    private Set<CommentsModel> comments;
+    private UserModel author;
+    private UserModel coAuthor;
+    private List<CommentsModel> comments;
 }

@@ -1,4 +1,4 @@
-package com.asa.dem.spring.boot.vwe.service.impl;
+package com.asa.dem.spring.boot.vwe.service;
 
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

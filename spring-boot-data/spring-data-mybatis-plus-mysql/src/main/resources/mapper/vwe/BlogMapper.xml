@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asa.dem.spring.boot.vwe.dao.BlogDao">
+
+    <resultMap id="blogDetail" type="com.asa.dem.spring.boot.vwe.bean.BlogTreeBean">
+        <id column="blogId" javaType="int"/>
+        <association property="blog" column="b_id" columnPrefix="b_" autoMapping="true"
+                     javaType="com.asa.dem.spring.boot.vwe.model.BlogModel"/>
+
+        <collection property="comments" column="c_id" columnPrefix="c_" autoMapping="true"
+                    javaType="com.asa.dem.spring.boot.vwe.model.CommentsModel">
+
+            <collection property="tags" column="t_id" columnPrefix="t_" autoMapping="true"
+                        javaType="com.asa.dem.spring.boot.vwe.model.TagModel">
+            </collection>
+        </collection>
+    </resultMap>
+
+
+    <select id="blogTree" resultMap="blogDetail">
+        SELECT
+            blog.id as b_id,
+            blog.author as b_author,
+            blog.title as b_title,
+            comments.id as c_id,
+            comments.blog_id as c_blog_id,
+            comments.remark as c_remark,
+            tags.comments_id as t_comments_id,
+            tags.id as t_id,
+            tags.`name` as t_name
+        FROM vwe_blog blog
+        LEFT JOIN vwe_comments comments ON blog.id = comments.blog_id
+        LEFT JOIN vwe_tags tags ON tags.comments_id = comments.id
+        WHERE blog.id = #{blogId};
+    </select>
+
+</mapper>
