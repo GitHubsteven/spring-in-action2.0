@@ -10,6 +10,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring-rest-api</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-api-order</module>
+    </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-jwt</artifactId>
+                <version>1.1.1.RELEASE</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

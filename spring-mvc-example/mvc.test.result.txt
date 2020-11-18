@@ -1,0 +1,54 @@
+PS D:\Apache24\bin> .\ab -n 1600 -c 40 localhost:9501/async_result
+This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 160 requests
+Completed 320 requests
+Completed 480 requests
+Completed 640 requests
+Completed 800 requests
+Completed 960 requests
+Completed 1120 requests
+Completed 1280 requests
+Completed 1440 requests
+Completed 1600 requests
+Finished 1600 requests
+
+
+Server Software:
+Server Hostname:        localhost
+Server Port:            9501
+
+Document Path:          /async_result
+Document Length:        16 bytes
+
+Concurrency Level:      40
+Time taken for tests:   100.972 seconds
+Complete requests:      1600
+Failed requests:        0
+Total transferred:      238400 bytes
+HTML transferred:       25600 bytes
+Requests per second:    15.85 [#/sec] (mean)
+Time per request:       2524.300 [ms] (mean)
+Time per request:       63.108 [ms] (mean, across all concurrent requests)
+Transfer rate:          2.31 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.4      0       1
+Processing:   706 2480 171.1   2500    2725
+Waiting:      706 2479 171.3   2499    2724
+Total:        706 2480 171.1   2500    2725
+
+Percentage of the requests served within a certain time (ms)
+  50%   2500
+  66%   2500
+  75%   2500
+  80%   2501
+  90%   2501
+  95%   2504
+  98%   2514
+  99%   2526
+ 100%   2725 (longest request)

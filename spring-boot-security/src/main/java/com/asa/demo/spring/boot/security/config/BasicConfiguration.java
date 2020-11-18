@@ -40,6 +40,7 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+//                .antMatchers(HttpMethod.DELETE,"/products/**")
                 .antMatchers("/authentication")
                 .permitAll()
                 .anyRequest()
