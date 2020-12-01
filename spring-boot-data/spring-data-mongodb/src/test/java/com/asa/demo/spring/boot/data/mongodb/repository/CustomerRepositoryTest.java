@@ -76,4 +76,9 @@ public class CustomerRepositoryTest {
             System.out.println(customer);
         }
     }
+
+    @Test
+    public void testCustomerQueryWith() {
+        customerRepository.count();
+    }
 }
