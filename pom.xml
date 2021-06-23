@@ -30,6 +30,7 @@
         <module>spring-mvc-example</module>
         <module>spring-webflux-example</module>
         <module>spring-swagger</module>
+        <module>spring-boot-base</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
