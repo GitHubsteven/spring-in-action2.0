@@ -2,6 +2,7 @@ package com.asa.dem.spring.boot.vwe.bean;
 
 import com.asa.dem.spring.boot.vwe.model.BlogModel;
 import com.asa.dem.spring.boot.vwe.model.CommentsModel;
+import com.asa.dem.spring.boot.vwe.model.TagModel;
 import com.asa.dem.spring.boot.vwe.model.UserModel;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,4 +24,5 @@ public class BlogTreeBean {
     private UserModel author;
     private UserModel coAuthor;
     private List<CommentsModel> comments;
+    private List<TagModel> tags;
 }
