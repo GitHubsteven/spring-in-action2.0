@@ -31,6 +31,7 @@
         <module>spring-webflux-example</module>
         <module>spring-swagger</module>
         <module>spring-boot-base</module>
+        <module>spring-openapi-doc</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
