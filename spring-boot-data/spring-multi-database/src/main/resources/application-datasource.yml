@@ -1,0 +1,13 @@
+#  数据库配置
+spring:
+  datasource:
+    account:
+      url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/account?serverTimezone=UTC
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+    oms:
+      url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/oms?serverTimezone=UTC
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
