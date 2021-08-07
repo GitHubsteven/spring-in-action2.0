@@ -32,6 +32,8 @@
         <module>spring-swagger</module>
         <module>spring-boot-base</module>
         <module>spring-openapi-doc</module>
+        <module>spring-dev-history</module>
+        <module>spring-boot-loader-seq</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
