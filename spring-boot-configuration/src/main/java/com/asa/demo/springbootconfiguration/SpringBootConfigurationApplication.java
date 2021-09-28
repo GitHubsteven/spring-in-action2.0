@@ -28,8 +28,12 @@ public class SpringBootConfigurationApplication {
     @Setter
     @Getter
     public static class SelfConfigProperties {
+        // 不行
         @Value("{servlet.port}")
         private String port;
+        // 不行
+        @Value("{self.version}")
+        private String version;
         private String defaultUrl;
         private Map<String, String> biz;
         private List<Integer> companyIds;

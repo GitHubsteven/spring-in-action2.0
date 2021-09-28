@@ -3,3 +3,10 @@ server:
 spring:
   application:
     name: SpringBootTestDemo
+  artemis:
+    embedded:
+      enabled: true
+
+api:
+  version: paper
+
