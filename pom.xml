@@ -34,6 +34,7 @@
         <module>spring-openapi-doc</module>
         <module>spring-dev-history</module>
         <module>spring-boot-loader-seq</module>
+        <module>spring-upload-file</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
