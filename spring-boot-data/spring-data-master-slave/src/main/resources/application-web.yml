@@ -1,0 +1,21 @@
+server:
+  port: 9350
+
+spring:
+  application:
+    name: mybatis_plus_mysql_app
+logging:
+  level:
+    root: info
+    pers:
+      demo:
+        asa:
+          spring:
+            data:
+              mybatis:
+                plus:
+                  mysql:
+                    mapper: info
+  pattern:
+    console: '%p%m%n'
+
