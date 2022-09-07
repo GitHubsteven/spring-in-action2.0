@@ -10,7 +10,7 @@ spring:
   redis:
     database: 0
     host: localhost
-    port: 6397
+    port: 6379
     lettuce:
       pool:
         max-active: 8

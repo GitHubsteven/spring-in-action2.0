@@ -16,11 +16,11 @@ public interface HsqldbMapper<T> {
     /**
      * 单表分页查询
      *
-     * @param object
-     * @param offset
-     * @param limit
-     * @return
+     * @param object 查询参数
+     * @param offset 移动
+     * @param limit  查询多少条
+     * @return 数据集合
      */
     @SelectProvider(type = HsqldbProvider.class, method = "dynamicSQL")
-    List selectPage(@Param("entity") T object, @Param("offset") int offset, @Param("limit") int limit);
+    List<T> selectPage(@Param("entity") T object, @Param("offset") int offset, @Param("limit") int limit);
 }

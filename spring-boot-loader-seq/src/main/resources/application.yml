@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: loaderApp
+server:
+  port: 10099

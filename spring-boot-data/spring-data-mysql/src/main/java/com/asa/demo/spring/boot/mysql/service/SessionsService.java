@@ -2,7 +2,6 @@ package com.asa.demo.spring.boot.mysql.service;
 
 import com.asa.demo.spring.boot.mysql.model.Session;
 import com.asa.demo.spring.boot.mysql.repository.SessionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,8 +11,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SessionsService {
-    @Autowired
-    private SessionRepository sessionRepository;
+    private final SessionRepository sessionRepository;
+
+    public SessionsService(SessionRepository sessionRepository) {
+        this.sessionRepository = sessionRepository;
+    }
 
     public void add(Session session) {
         Session save = sessionRepository.save(session);

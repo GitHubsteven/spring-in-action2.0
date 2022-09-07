@@ -12,10 +12,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+      dialect: sql
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/spring_boot?serverTimezone=UTC
     username: root
     password: 123456
+
 
 
 

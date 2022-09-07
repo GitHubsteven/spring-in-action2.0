@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
  * @date: Created at 18:29 2019/8/29.
  */
 @RestController
-@RequestMapping("/demo")
+@RequestMapping("/service/demo")
 public class DemoController {
 
     @PostMapping("/getJwt")

@@ -4,6 +4,7 @@ import com.asa.demo.mybatis.mysql.solution1.provider.CountByCriteriaSqlProvider;
 import com.asa.demo.mybatis.mysql.solution1.provider.CountSqlProvider;
 import com.asa.demo.mybatis.mysql.solution1.provider.InsertSqlProvider;
 import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.SelectProvider;
 
 /**
@@ -14,6 +15,7 @@ import org.apache.ibatis.annotations.SelectProvider;
  */
 public interface BaseMapper<Entity> {
     @InsertProvider(type = InsertSqlProvider.class, method = "sql")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     Integer insert(Entity entity);
 
     @SelectProvider(type = CountSqlProvider.class, method = "sql")

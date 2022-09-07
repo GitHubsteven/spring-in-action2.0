@@ -1,0 +1,1 @@
+[spring-boot-mongodb-configuration](https://www.devglan.com/spring-boot/spring-boot-mongodb-configuration)

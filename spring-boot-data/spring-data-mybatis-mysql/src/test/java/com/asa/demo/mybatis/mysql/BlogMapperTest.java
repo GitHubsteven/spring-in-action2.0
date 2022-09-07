@@ -1,5 +1,6 @@
 package com.asa.demo.mybatis.mysql;
 
+import com.asa.dem.spring.boot.vwe.bean.BlogTreeBean;
 import com.asa.demo.mybatis.mysql.mapper.BlogMapper;
 import com.asa.demo.mybatis.mysql.model.BlogModel;
 import com.asa.demo.mybatis.mysql.model.CountUser;
@@ -51,10 +52,16 @@ public class BlogMapperTest extends BaseTest {
     @Test
     public void testInsertModel() {
         BlogModel blogModel = new BlogModel();
-        blogModel.setTitle("insert by custom mapper common api");
-        blogModel.setAuthor("BlogMapperTest");
+        blogModel.setTitle("will i get id without option?");
+        blogModel.setAuthor("asa.x-test");
 
         Integer insert = blogMapper.insert(blogModel);
         System.out.println(insert);
+    }
+
+    @Test
+    public void testBlogTree() {
+//        BlogTreeBean blogTree = blogMapper.blogTree(11);
+//        System.out.println(blogTree.getBlog());
     }
 }

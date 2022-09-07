@@ -19,7 +19,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("session")
-public class SessionModel extends BaseModel {
+public class SessionModel extends BaseModel<Integer> {
 
     private static final long serialVersionUID = 1L;
 

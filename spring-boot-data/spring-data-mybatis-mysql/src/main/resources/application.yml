@@ -1,5 +1,5 @@
-server:
-  port: 8333
+#server:
+#  port: 8333
 
 #com.mysql.jdbc.Driver
 spring:
@@ -13,4 +13,3 @@ spring:
 mybatis:
   type-aliases-package: com.asa.demo.mybatis.mysql.model
   mapper-locations: classpath*:mapper/*.xml
-#  mapper-locations: classpath*:com/asa/demo/mybatis/mysql/mapper/*.xml

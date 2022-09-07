@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 /**
  * @version 1.0.0 COPYRIGHT © 2001 - 2018 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  * @Author jet.xie
@@ -21,9 +23,17 @@ public class DemoServiceTest {
     @Autowired
     private DemoService demoService;
 
+    @Autowired
+    private List<IService> iServices;
+
     @Test
     public void testIntroduce() {
         System.out.println(demoService.introduce());
+    }
+
+    @Test
+    public void doService() {
+        iServices.forEach(IService::doService);
     }
 
     @Configuration

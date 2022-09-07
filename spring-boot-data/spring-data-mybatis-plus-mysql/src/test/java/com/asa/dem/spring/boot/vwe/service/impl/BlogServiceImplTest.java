@@ -1,6 +1,7 @@
 package com.asa.dem.spring.boot.vwe.service.impl;
 
 import com.asa.dem.spring.boot.vwe.model.BlogModel;
+import com.asa.dem.spring.boot.vwe.service.BaseServiceTest;
 import com.asa.dem.spring.boot.vwe.service.IBlogService;
 import org.junit.Assert;
 import org.junit.Test;

@@ -9,16 +9,16 @@ import java.util.Map;
  * @date: Created at 9:51 2019/10/16.
  */
 public class BlogSqlProvider {
-    public String selectById(Map parameters) {
+    public String selectById(Map<String, Object> parameters) {
         return "select * from spring_boot.vwe_blog where id =" + parameters.get("id");
     }
 
-    public String insertBlog(Map parameters) {
+    public String insertBlog(Map<String, Object> parameters) {
         return String.format("insert into spring_boot.vwe_blog(title,author) values('%s','%s')",
                 parameters.get("title"), parameters.get("author"));
     }
 
-    public String countUserBlog(Map parameters) {
+    public String countUserBlog(Map<String, Object> parameters) {
         return "SELECT\n" +
                 "  u.name,\n" +
                 "  count(1) AS count\n" +

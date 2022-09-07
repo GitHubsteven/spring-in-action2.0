@@ -1,0 +1,18 @@
+jdbc:
+  driverClassName: com.mysql.cj.jdbc.Driver
+  user: root
+  pass: 123456
+
+account:
+  jdbc:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/account?serverTimezone=UTC
+
+oms:
+  jdbc:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/oms?serverTimezone=UTC
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+      dialect: org.hibernate.dialect.MySQL8Dialect

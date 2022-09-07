@@ -1,10 +1,8 @@
 package com.asa.demo.mybatis.mysql.dao;
 
+import com.asa.demo.mybatis.mysql.model.BlogModel;
 import com.asa.demo.mybatis.mysql.model.UserModel;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -38,4 +36,19 @@ public interface UserDao {
      * @param id 用户id
      */
     UserModel getById(@Param("id") long id);
+
+    /**
+     * 通过id来更新name
+     *
+     * @param model 更新信息
+     * @return 更新信息
+     */
+    @Update({"<script>",
+            "update Author",
+            "  <set>",
+            "    <if test='model.author != null'>author=#{model.author}</if>",
+            "  </set>",
+            "where id=#{model.id}",
+            "</script>"})
+    int updateName(@Param("model") BlogModel model);
 }

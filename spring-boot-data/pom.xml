@@ -16,6 +16,8 @@
         <module>spring-data-redis</module>
         <module>spring-data-mybatis-mysql</module>
         <module>spring-data-mybatis-plus-mysql</module>
+        <module>spring-mongo-comparison</module>
+        <module>spring-multi-database</module>
         <module>spring-data-master-slave</module>
     </modules>
     <artifactId>spring-boot-data</artifactId>

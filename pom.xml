@@ -21,6 +21,20 @@
         <module>spring-service-inject</module>
         <module>spring-cache-redis-custom</module>
         <module>spring-shiro</module>
+        <module>spring-api-mock</module>
+        <module>spring-base-thread</module>
+        <module>spring-boot-webservice</module>
+        <module>spring-boot-mesage</module>
+        <module>spring-scheduler-quartz</module>
+        <module>spring-service-center</module>
+        <module>spring-mvc-example</module>
+        <module>spring-webflux-example</module>
+        <module>spring-swagger</module>
+        <module>spring-boot-base</module>
+        <module>spring-openapi-doc</module>
+        <module>spring-dev-history</module>
+        <module>spring-boot-loader-seq</module>
+        <module>spring-upload-file</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -35,6 +49,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
     </properties>
 
     <dependencyManagement>
@@ -105,6 +120,22 @@
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring-boot-starter</artifactId>
                 <version>1.5.3</version>
+            </dependency>
+            <dependency>
+                <groupId>de.grundid.opendatalab</groupId>
+                <artifactId>geojson-jackson</artifactId>
+                <version>1.14</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jongo</groupId>
+                <artifactId>jongo</artifactId>
+                <version>1.4.1</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.mongodb.morphia/morphia -->
+            <dependency>
+                <groupId>org.mongodb.morphia</groupId>
+                <artifactId>morphia</artifactId>
+                <version>1.3.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

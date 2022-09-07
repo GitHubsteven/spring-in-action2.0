@@ -1,0 +1,59 @@
+# curl --location --request POST 'http://10.0.0.152/service/voerp-openapi-zuul/api/v2/logistics/waybill/order/prepick'
+#--header 'Content-Type: application/json'
+#--header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VyIjoie1wiY29tcGFueUlkXCI6NTgxLFwic2VsbGVySWRcIjo1ODEsXCJzdXBwbGllcklkXCI6NTgxLFwidXNlcm5hbWVcIjpcInNhbGxleS5zdXBwbGllcjEuYWNjb3VudFwifSIsInBhcmFtcyI6Int9IiwicGVybSI6InVzZXIiLCJpc3MiOiJ2b3lhZ2VvbmUiLCJzdWIiOiJqd3QiLCJpYXQiOjE1OTU4NDA2NDQsImV4cCI6MTYyNzM3NjY0NH0.c6ai2cVCtv2TkDSSHZujUmoxM2VnZnSwE2Ws9yb54LWykOKeL0XR9e9wj8wgU8J3WYx2sGei1wVoxH59IKDUCSJK81UNTFd8CqLyMuDe2Xpoy-Y7XTE0QT7HG7e_IAS603Z3gLYdoe-N3l3ZVuRE0kRBU2Nj1jbMeAQLHzux9kVvosjBWSPvaaelp3lqLSlXDOmjD_pOgkL6KEOBykGbz0zZ4Dh4y91oCOlo0REEyFui7X1eAI-69LG136xw7yMVqj0BX2M0G4mRHzi5XYXvgH3sfn2fLZTPxsv36EuCFBNI9FKNrpR4YfDvV9P_7JUQMDP4cgg4OD-4dHpMN1w70Q'
+#--data-raw '{
+#    "orderId": "Test00000123",
+#    "fromWarehouseKey": "W102",
+#    "fromContact": {
+#        "contactName": "张三",
+#        "telephone": "025-88888888",
+#        "mobilePhone": "13000000000",
+#        "outCountry": "",
+#        "outProvince": "江苏省",
+#        "outCity": "南京市",
+#        "outDistrict": "玄武区",
+#        "outTown": "",
+#        "detailAddress": "长江路90号"
+#    },
+#    "toContact": {
+#        "contactName": "李四",
+#        "telephone": "0571-77777777",
+#        "mobilePhone": "13111111111",
+#        "outCountry": "",
+#        "outProvince": "江苏省",
+#        "outCity": "南京市",
+#        "outDistrict": "玄武区",
+#        "outTown": "",
+#        "detailAddress": "长江路99号(boc表示同城可半日达）boc"
+#    }
+#}'
+POST http://10.0.0.152/service/voerp-openapi-zuul/api/v2/logistics/waybill/order/prepick
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1c2VyIjoie1wiY29tcGFueUlkXCI6NTgxLFwic2VsbGVySWRcIjo1ODEsXCJzdXBwbGllcklkXCI6NTgxLFwidXNlcm5hbWVcIjpcInNhbGxleS5zdXBwbGllcjEuYWNjb3VudFwifSIsInBhcmFtcyI6Int9IiwicGVybSI6InVzZXIiLCJpc3MiOiJ2b3lhZ2VvbmUiLCJzdWIiOiJqd3QiLCJpYXQiOjE1OTU4NDA2NDQsImV4cCI6MTYyNzM3NjY0NH0.c6ai2cVCtv2TkDSSHZujUmoxM2VnZnSwE2Ws9yb54LWykOKeL0XR9e9wj8wgU8J3WYx2sGei1wVoxH59IKDUCSJK81UNTFd8CqLyMuDe2Xpoy-Y7XTE0QT7HG7e_IAS603Z3gLYdoe-N3l3ZVuRE0kRBU2Nj1jbMeAQLHzux9kVvosjBWSPvaaelp3lqLSlXDOmjD_pOgkL6KEOBykGbz0zZ4Dh4y91oCOlo0REEyFui7X1eAI-69LG136xw7yMVqj0BX2M0G4mRHzi5XYXvgH3sfn2fLZTPxsv36EuCFBNI9FKNrpR4YfDvV9P_7JUQMDP4cgg4OD-4dHpMN1w70Q
+Content-Type: application/json
+
+{
+    "orderId": "Test00000123",
+    "fromWarehouseKey": "W102",
+    "fromContact": {
+        "contactName": "张三",
+        "telephone": "025-88888888",
+        "mobilePhone": "13000000000",
+        "outCountry": "",
+        "outProvince": "江苏省",
+        "outCity": "南京市",
+        "outDistrict": "玄武区",
+        "outTown": "",
+        "detailAddress": "长江路90号"
+    },
+    "toContact": {
+        "contactName": "李四",
+        "telephone": "0571-77777777",
+        "mobilePhone": "13111111111",
+        "outCountry": "",
+        "outProvince": "江苏省",
+        "outCity": "南京市",
+        "outDistrict": "玄武区",
+        "outTown": "",
+        "detailAddress": "长江路99号(boc表示同城可半日达）boc"
+    }
+}

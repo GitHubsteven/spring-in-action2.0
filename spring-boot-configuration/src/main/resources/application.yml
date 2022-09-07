@@ -5,6 +5,7 @@ server:
   port: 9400
 
 self:
+  version: 1.0
   params:
     defaultUrl: 10.0.0.1
     biz:
@@ -14,4 +15,8 @@ self:
     companyIds:
       - 1
       - 2
+
+#config:
+#  property:
+#    subscribe: book
 
