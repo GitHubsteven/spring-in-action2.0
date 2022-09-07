@@ -17,7 +17,7 @@ public class RoutingDataSourceHolder {
      * 一个事务内用同一个数据源
      */
     public static void setDataSource(String dataSourceName) {
-        if (dataSources.get() == null || !dataSourceName.equals(dataSources.get())) {
+        if (dataSources.get() == null) {
             dataSources.set(dataSourceName);
             logger.info("thread:{} 设置数据源：{}", Thread.currentThread().getName(), dataSourceName);
         }

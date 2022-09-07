@@ -8,6 +8,7 @@ package com.asa.demo.aop;
 import com.asa.demo.annotation.DataSourceWith;
 import com.asa.demo.config.DataSourceConfigurer;
 import com.asa.demo.config.RoutingDataSourceHolder;
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.ibatis.annotations.Select;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -21,7 +22,6 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 @Aspect
 @Order(-1)// 保证该AOP在@Transactional之前运行
@@ -74,17 +74,15 @@ public class DataSourceWithAspect {
         }
         // 如果是查询的话，那么默认从多个从库中随机获取，策略自己定义，也可以通过redis来缓存查询每个库的访问次数，测错看需求
         if (isSelect) {
-            String curSelectDS = RoutingDataSourceHolder.getDataSource();
-            if (curSelectDS == null) return DataSourceConfigurer.SLAVE_DATASOURCE;
-            return DataSourceConfigurer.SLAVE_DATASOURCE.equals(curSelectDS) ? DataSourceConfigurer.SLAVE_DATASOURCE2
-                    : DataSourceConfigurer.SLAVE_DATASOURCE;
+            int random = RandomUtils.nextInt(0, 2);
+            return random % 2 == 0 ? DataSourceConfigurer.SLAVE_DATASOURCE2 : DataSourceConfigurer.SLAVE_DATASOURCE;
         }
         return DataSourceConfigurer.MASTER_DATASOURCE;
     }
 
     @After("doPointcut()")
     public void doAfter(JoinPoint joinPoint) {
-//        RoutingDataSourceHolder.clearDataSource();
+        RoutingDataSourceHolder.clearDataSource();
     }
 
 }
