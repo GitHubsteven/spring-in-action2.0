@@ -1,0 +1,43 @@
+spring:
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+##数据库配置
+##数据库database0地址
+database0:
+  url: jdbc:mysql://localhost:3306/asx?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+  ##数据库database0用户名
+  username: root
+  ##数据库database0密码
+  password: root
+  ##数据库database0驱动
+  driverClassName: com.mysql.jdbc.Driver
+  ##数据库database0名称
+  databaseName: database0
+
+##数据库database1地址
+database1:
+  url: jdbc:mysql://localhost:3307/asx?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+  ##数据库database1用户名
+  username: root
+  ##数据库database1密码
+  password: root
+  ##数据库database1驱动
+  driverClassName: com.mysql.jdbc.Driver
+  ##数据库database1名称
+  databaseName: database1
+
+##数据库database1地址
+database2:
+  url: jdbc:mysql://localhost:3308/asx?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+  ##数据库database2用户名
+  username: root
+  ##数据库database2密码
+  password: root
+  ##数据库database2驱动
+  driverClassName: com.mysql.jdbc.Driver
+  ##数据库database2名称
+  databaseName: database2
