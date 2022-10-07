@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/master/slave/jpa/user")
+@RequestMapping("/master/slave/user")
 public class UserController {
     private final UserService userService;
 
@@ -22,8 +22,13 @@ public class UserController {
     }
 
 
-    @GetMapping("/get-by-id/{id}")
+    @GetMapping("/jpa/get-by-id/{id}")
     public String getById(@PathVariable("id") Integer id) {
         return userService.getById(id).getName();
+    }
+
+    @GetMapping("/mybatis/get-by-id/{id}")
+    public String getByIdMy(@PathVariable("id") Integer id) {
+        return userService.getByIdMybatis(id).getName();
     }
 }

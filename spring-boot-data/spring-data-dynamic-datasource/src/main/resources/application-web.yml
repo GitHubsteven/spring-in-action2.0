@@ -1,9 +1,9 @@
 server:
-  port: 9360
+  port: 9380
 
 spring:
   application:
-    name: mybatis_plus_mysql_app
+    name: dynamic-datasource-app
 logging:
   level:
     root: info

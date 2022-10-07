@@ -1,9 +1,9 @@
 server:
-  port: 9360
+  port: 9380
 
 spring:
   application:
-    name: mybatis_plus_mysql_app
+    name: sharding-mybatis-plus
 logging:
   level:
     root: info
@@ -18,8 +18,4 @@ logging:
                     mapper: info
   pattern:
     console: '%p%m%n'
-
-mybatis:
-  type-aliases-package: com.asa.demo.model
-  mapper-locations: classpath*:mapper/*.xml
 

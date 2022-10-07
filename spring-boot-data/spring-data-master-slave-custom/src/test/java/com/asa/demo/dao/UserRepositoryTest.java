@@ -6,6 +6,7 @@
 package com.asa.demo.dao;
 
 import com.asa.demo.JpaMSApplicationTest;
+import com.asa.demo.repository.UserRepository;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

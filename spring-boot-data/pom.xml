@@ -20,6 +20,8 @@
         <module>spring-multi-database</module>
         <module>spring-data-master-slave</module>
         <module>spring-data-master-slave-custom</module>
+        <module>spring-data-sharding</module>
+        <module>spring-data-dynamic-datasource</module>
     </modules>
     <artifactId>spring-boot-data</artifactId>
     <dependencies>

@@ -1,0 +1,34 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: ds0,ds1
+      ds0:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/sharding-jdbc0?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+        username: root
+        password: 222333
+        type: com.zaxxer.hikari.HikariDataSource
+      ds1:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://127.0.0.1:3306/sharding-jdbc1?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+        username: root
+        password: 222333
+        type: com.zaxxer.hikari.HikariDataSource
+    sharding:
+      tables:
+        student:
+          #key-generator:
+          #  column: id
+          #  type: SNOWFLAKE
+          actual-data-nodes: ds$->{0..1}.t_order_$->{0..1}
+          database-strategy:
+            inline:
+              sharding-column: id
+              algorithm‐expression: ds$->{id % 2}
+          table-strategy:
+            inline:
+              sharding-column: id
+              algorithm‐expression: t_order_$->{id % 2}
+    props:
+      sql:
+        show: true   # 日志显示SQL

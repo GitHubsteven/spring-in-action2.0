@@ -3,7 +3,7 @@
  * @date: 2022/9/7
  * @descrition:
  */
-package com.asa.demo.dao;
+package com.asa.demo.repository;
 
 import com.asa.demo.model.UserModel;
 import org.apache.ibatis.annotations.Insert;
