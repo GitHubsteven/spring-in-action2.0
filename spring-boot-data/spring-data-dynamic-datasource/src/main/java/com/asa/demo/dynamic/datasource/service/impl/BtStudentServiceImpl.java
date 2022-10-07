@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BtStudentServiceImpl extends ServiceImpl<BtStudentMapper, BtStudentModel> implements BtStudentService {
-    @DS("slave_1")
+//    @DS("slave_1")
     public BtStudentModel findStudent(Integer id) {
         return getById(id);
     }
