@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asa.demo.dynamic.datasource.mapper.BtStudentMapper">
+
+    <resultMap id="BaseResultMap" type="com.asa.demo.dynamic.datasource.model.BtStudentModel">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="age" column="age" jdbcType="INTEGER"/>
+        <result property="code" column="code" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,name,age,code
+    </sql>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(1)
+        from student
+    </select>
+</mapper>

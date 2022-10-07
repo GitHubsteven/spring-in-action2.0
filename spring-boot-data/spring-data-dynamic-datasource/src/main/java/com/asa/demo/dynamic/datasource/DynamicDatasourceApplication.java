@@ -10,7 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.asa.dem.spring.boot.vwe.dao")
+@MapperScan("com.asa.demo.dynamic.datasource.mapper")
 public class DynamicDatasourceApplication {
     public static void main(String[] args) {
         SpringApplication.run(DynamicDatasourceApplication.class, args);
