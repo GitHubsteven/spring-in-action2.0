@@ -3,7 +3,7 @@ package com.asa.demo.dynamic.datasource.service.impl;
 import com.asa.demo.dynamic.datasource.mapper.BtStudentMapper;
 import com.asa.demo.dynamic.datasource.model.BtStudentModel;
 import com.asa.demo.dynamic.datasource.service.BtStudentService;
-import com.baomidou.dynamic.datasource.annotation.DS;
+import com.baomidou.dynamic.datasource.annotation.DSTransactional;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +14,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BtStudentServiceImpl extends ServiceImpl<BtStudentMapper, BtStudentModel> implements BtStudentService {
-//    @DS("slave_1")
     public BtStudentModel findStudent(Integer id) {
         return getById(id);
+    }
+
+    @Override
+    @DSTransactional
+    public boolean changeStudentCode(Integer id, String fromCode, String toCode) {
+        return false;
     }
 }

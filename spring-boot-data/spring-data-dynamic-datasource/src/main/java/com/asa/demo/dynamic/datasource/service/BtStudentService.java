@@ -2,6 +2,7 @@ package com.asa.demo.dynamic.datasource.service;
 
 
 import com.asa.demo.dynamic.datasource.model.BtStudentModel;
+import com.baomidou.dynamic.datasource.annotation.DSTransactional;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -17,4 +18,7 @@ public interface BtStudentService extends IService<BtStudentModel> {
      * @return 学生信息
      */
     BtStudentModel findStudent(Integer id);
+
+
+    boolean changeStudentCode(Integer id, String fromCode, String toCode);
 }
