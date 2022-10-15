@@ -1,34 +1,49 @@
 spring:
   shardingsphere:
     datasource:
-      names: ds0,ds1
-      ds0:
+      names: ds-0,ds-1
+      ds-0:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://127.0.0.1:3306/sharding-jdbc0?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+        url: jdbc:mysql://127.0.0.1:3307/ds-0?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
         username: root
-        password: 222333
-        type: com.zaxxer.hikari.HikariDataSource
-      ds1:
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+      ds-1:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://127.0.0.1:3306/sharding-jdbc1?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+        url: jdbc:mysql://127.0.0.1:3308/ds-1?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
         username: root
-        password: 222333
-        type: com.zaxxer.hikari.HikariDataSource
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
     sharding:
       tables:
-        student:
-          #key-generator:
-          #  column: id
-          #  type: SNOWFLAKE
-          actual-data-nodes: ds$->{0..1}.t_order_$->{0..1}
+        t_order:
+          key-generator:
+            column: order_id
+            type: SNOWFLAKE
+          actual-data-nodes: ds-$->{0..1}.t_order_$->{0..1}
           database-strategy:
             inline:
-              sharding-column: id
-              algorithm‐expression: ds$->{id % 2}
+              sharding-column: order_id
+              algorithm-expression: ds-$->{order_id % 2}
           table-strategy:
             inline:
-              sharding-column: id
-              algorithm‐expression: t_order_$->{id % 2}
+              sharding-column: order_id
+              algorithm-expression: t_order_$->{order_id % 2}
+        t_order_item:
+          key-generator:
+            column: item_id
+            type: SNOWFLAKE
+          actual-data-nodes: ds-$->{0..1}.t_order_item_$->{0..1}
+          database-strategy:
+            inline:
+              sharding-column: order_id
+              algorithm-expression: ds-$->{order_id % 2}
+          table-strategy:
+            inline:
+              sharding-column: order_id
+              algorithm-expression: t_order_item_$->{order_id % 2}
+      binding-tables: t_order,t_order_item
+      broadcast-tables: t_config
     props:
       sql:
         show: true   # 日志显示SQL
