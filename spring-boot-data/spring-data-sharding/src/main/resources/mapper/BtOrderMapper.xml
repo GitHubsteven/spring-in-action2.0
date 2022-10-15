@@ -5,14 +5,22 @@
 <mapper namespace="com.asa.demo.sharding.mapper.BtOrderMapper">
 
     <resultMap id="BaseResultMap" type="com.asa.demo.sharding.domain.BtOrderModel">
-            <id property="orderId" column="order_id" jdbcType="BIGINT"/>
-            <result property="orderNo" column="order_no" jdbcType="VARCHAR"/>
-            <result property="createName" column="create_name" jdbcType="VARCHAR"/>
-            <result property="price" column="price" jdbcType="DECIMAL"/>
+        <id property="orderId" column="order_id" jdbcType="BIGINT"/>
+        <result property="orderNo" column="order_no" jdbcType="VARCHAR"/>
+        <result property="createName" column="create_name" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="DECIMAL"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        order_id,order_no,create_name,
+        order_id
+        ,order_no,create_name,
         price
     </sql>
+
+    <select id="selectByCreateName" resultType="com.asa.demo.sharding.domain.BtOrderModel">
+        select
+        <include refid="Base_Column_List"/>
+        from t_order
+        where create_name = #{createName};
+    </select>
 </mapper>

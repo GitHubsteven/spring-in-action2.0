@@ -18,7 +18,7 @@ public class BtOrderModel implements Serializable {
     /**
      *
      */
-    @TableId(type = IdType.ID_WORKER)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long orderId;
 
     /**

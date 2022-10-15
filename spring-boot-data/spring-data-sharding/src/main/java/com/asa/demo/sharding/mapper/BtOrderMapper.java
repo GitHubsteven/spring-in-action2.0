@@ -2,6 +2,10 @@ package com.asa.demo.sharding.mapper;
 
 import com.asa.demo.sharding.domain.BtOrderModel;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author xrb16
@@ -11,5 +15,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface BtOrderMapper extends BaseMapper<BtOrderModel> {
 
-
+    List<BtOrderModel> selectByCreateName(IPage<BtOrderModel> pageBean,
+                                          @Param("createName") String createName);
 }
