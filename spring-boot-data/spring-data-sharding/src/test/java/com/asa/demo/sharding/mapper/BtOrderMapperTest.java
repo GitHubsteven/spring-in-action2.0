@@ -22,7 +22,8 @@ public class BtOrderMapperTest extends ShardingAppTest {
 
     @Test
     public void testCreateOrder() {
-        for (int i = 14; i < 24; i++) {
+        int start = 0;
+        for (int i = start; i < start + 10; i++) {
             BtOrderModel order = new BtOrderModel();
             order.setOrderNo("A000" + i);
             order.setCreateName("订单 " + i);

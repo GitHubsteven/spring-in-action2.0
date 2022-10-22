@@ -1,3 +1,4 @@
 spring:
   profiles:
-    active: web,mbp_dynamic,sharding_jdbc
+#    如果想激活sharding-jdbc的分库表分的话，那么久增加sharding_jdbc配置文件
+    active: web,master_slave
