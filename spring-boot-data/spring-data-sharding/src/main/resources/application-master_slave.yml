@@ -1,5 +1,6 @@
 spring:
   shardingsphere:
+#    数据库名称
     datasource:
       names: master,slave-0,slave-1
       master:
@@ -20,6 +21,7 @@ spring:
         url: jdbc:mysql://localhost:3308/asx?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
         username: root
         password: root
+#  配置分片规则
     sharding:
       tables:
         t_order:
@@ -53,9 +55,7 @@ spring:
 #      default-data-source-name: master
       defaultTableStrategy:
         none:
-        defaultKeyGenerator:
-          type: SNOWFLAKE
-          column: order_id
+#      配置主从规则
       masterSlaveRules:
         ms:
           masterDataSourceName: master
