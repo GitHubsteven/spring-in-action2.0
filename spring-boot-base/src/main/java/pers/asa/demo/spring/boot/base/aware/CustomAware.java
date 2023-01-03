@@ -1,11 +1,9 @@
 package pers.asa.demo.spring.boot.base.aware;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.Aware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.support.WebApplicationContextUtils;
 import pers.asa.demo.spring.boot.base.util.ApplicationContextUtil;
 
 /**

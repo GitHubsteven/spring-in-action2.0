@@ -1,0 +1,9 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: root
+    virtual-host: pers-xrb
+    publisher-confirms: true    #确认消息已发送到交换机(Exchange)
+    publisher-returns: true     #确认消息已发送到队列(Queue)

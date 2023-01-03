@@ -1,0 +1,11 @@
+server:
+  port: 9875
+
+spring:
+  application:
+    name: spring-rabbitmq-integration-consumer
+  profiles:
+    active: rabbitmq
+logging:
+  level:
+    web: debug

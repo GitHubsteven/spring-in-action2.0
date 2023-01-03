@@ -22,7 +22,7 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfig {
     public static final String topicExchangeName = "spring-boot-exchange";
 
-    static final String queueName = "spring-boot";
+    public static final String queueName = "spring-boot";
 
     @Bean
     public Queue queue() {
@@ -47,12 +47,12 @@ public class BeanConfig {
      * @return 消息监听器
      */
     @Bean
-    SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
+    SimpleMessageListenerContainer container(ConnectionFactory connectionFactory,
+                                             MessageListenerAdapter listenerAdapter) {
         SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
         container.setQueueNames(queueName);
         container.setMessageListener(listenerAdapter);
-
         return container;
     }
 

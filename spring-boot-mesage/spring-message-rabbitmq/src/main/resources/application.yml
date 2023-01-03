@@ -1,2 +1,6 @@
 server:
   port: 8101
+
+spring:
+  application:
+    name: RabbitMqApplication

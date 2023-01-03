@@ -12,6 +12,8 @@
     <modules>
         <module>spring-message-jms</module>
         <module>spring-message-rabbitmq</module>
+        <module>spring-rabbitmq-integration-publisher</module>
+        <module>spring-rabbitmq-integration-consumer</module>
     </modules>
     <artifactId>spring-boot-mesage</artifactId>
     <packaging>pom</packaging>

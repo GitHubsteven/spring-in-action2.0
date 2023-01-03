@@ -1,0 +1,11 @@
+server:
+  port: 9876
+
+spring:
+  application:
+    name: spring-rabbitmq-integration-publisher
+  profiles:
+    active: rabbitmq
+logging:
+  level:
+    web: debug

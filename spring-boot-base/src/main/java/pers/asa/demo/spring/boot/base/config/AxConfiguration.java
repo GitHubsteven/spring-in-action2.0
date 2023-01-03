@@ -1,6 +1,7 @@
 package pers.asa.demo.spring.boot.base.config;
 
 import org.springframework.context.annotation.Bean;
+import pers.asa.demo.spring.boot.base.bean.AxBeanAware;
 import pers.asa.demo.spring.boot.base.service.DemoService;
 
 /**
@@ -24,5 +25,9 @@ public class AxConfiguration {
         }
     }
 
+    @Bean
+    public AxBeanAware axBeanAware() {
+        return new AxBeanAware("AxBeanAware");
+    }
 }
 
