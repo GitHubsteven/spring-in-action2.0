@@ -7,6 +7,7 @@ package com.asa.demo.spring.rabbitmq.integration.controller;
 
 
 import com.asa.demo.spring.rabbitmq.integration.bean.MqConstant;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,8 +55,8 @@ public class SendMessageController {
     public String sendNotExistExchangeMessage() {
         Map<String, Object> map = getMqMessage();
         //将消息携带绑定键值：TestDirectRouting 发送到交换机TestDirectExchange
-        rabbitTemplate.convertAndSend("TestDirectExchange",
-                "TestDirectRouting", map);
+        rabbitTemplate.convertAndSend("NotExistExchangeExchange",
+                "NotExistExchangeExchangeQueue", map);
         return "ok";
     }
 

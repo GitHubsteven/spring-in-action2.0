@@ -36,7 +36,7 @@ public class DirectRabbitConfig {
     }
 
     /**
-     * Direct交换机 起名：TestDirectExchange
+     * Direct交换机 起名：NotExistQueueButExchangeExchange
      */
     @Bean
     DirectExchange NotExistQueueButExchange() {
