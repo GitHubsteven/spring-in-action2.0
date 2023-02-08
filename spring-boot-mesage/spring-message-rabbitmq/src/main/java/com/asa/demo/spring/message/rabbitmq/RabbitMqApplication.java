@@ -1,5 +1,6 @@
 package com.asa.demo.spring.message.rabbitmq;
 
+import com.asa.demo.spring.message.rabbitmq.annotation.EnableAxRabbitMq;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @copyright COPYRIGHT © 2014 - 2020 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  **/
 @SpringBootApplication
+@EnableAxRabbitMq
 public class RabbitMqApplication {
 
     public static void main(String[] args) {

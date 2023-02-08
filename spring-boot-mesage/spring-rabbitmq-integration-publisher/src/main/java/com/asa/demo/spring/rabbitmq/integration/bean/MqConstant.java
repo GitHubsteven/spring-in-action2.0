@@ -9,9 +9,12 @@ public interface MqConstant {
 
     interface Exchange{
         String TEST_DIRECT_EXCHANGE = "TestDirectExchange";
+
+        String DEFAULT_EXCHANGE = "defaultExchange";
     }
 
     interface Queue{
         String TEST_DIRECT_ROUTING = "TestDirectRouting";
     }
+
 }

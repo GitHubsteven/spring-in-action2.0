@@ -16,7 +16,8 @@ import pers.asa.demo.spring.boot.base.annotation.EnableAsaClients;
  * @description
  * @copyright COPYRIGHT © 2014 - 2021/4/28 VOYAGE ONE GROUP INC. ALL RIGHTS RESERVED.
  **/
-public class AsaClientRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
+public class AsaClientRegistrar implements ImportBeanDefinitionRegistrar,
+        ResourceLoaderAware, EnvironmentAware {
 
     private ResourceLoader resourceLoader;
 
@@ -34,6 +35,12 @@ public class AsaClientRegistrar implements ImportBeanDefinitionRegistrar, Resour
 
     @Override
     public void registerBeanDefinitions(AnnotationMetadata annotationMetadata, BeanDefinitionRegistry beanDefinitionRegistry) {
+//        try {
+//            Class<?> aClass = resourceLoader.getClassLoader().loadClass("");
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+//        } finally {
+//        }
         annotationMetadata.getAnnotationAttributes(EnableAsaClients.class.getName(), true);
     }
 }

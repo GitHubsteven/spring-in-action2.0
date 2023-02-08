@@ -24,7 +24,7 @@ public class AxBeanAware implements BeanNameAware, Lifecycle {
 
     @Override
     public void setBeanName(String name) {
-        setBeanName(name);
+        this.name = name;
     }
 
     @Override
@@ -32,7 +32,6 @@ public class AxBeanAware implements BeanNameAware, Lifecycle {
         this.start = new Date();
         System.out.printf("bean name: %s, at time %d", name, System.currentTimeMillis());
     }
-
 
 
     @Override
