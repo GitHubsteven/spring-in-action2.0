@@ -11,10 +11,17 @@ public interface MqConstant {
         String TEST_DIRECT_EXCHANGE = "TestDirectExchange";
 
         String DEFAULT_EXCHANGE = "defaultExchange";
+
     }
 
     interface Queue{
         String TEST_DIRECT_ROUTING = "TestDirectRouting";
+
+        String EXPIRED_ORDER = "expired-order";
+        interface  DXL{
+
+        }
     }
+
 
 }
