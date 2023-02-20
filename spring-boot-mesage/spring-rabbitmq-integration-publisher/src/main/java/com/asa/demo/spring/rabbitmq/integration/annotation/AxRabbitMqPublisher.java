@@ -1,13 +1,11 @@
 package com.asa.demo.spring.rabbitmq.integration.annotation;
 
-import org.springframework.stereotype.Indexed;
-
 import java.lang.annotation.*;
 
+
 @Target(ElementType.TYPE)
+@Inherited
 @Retention(RetentionPolicy.RUNTIME)
-@Documented
-@Indexed
 public @interface AxRabbitMqPublisher {
     /**
      * 声明队列名称

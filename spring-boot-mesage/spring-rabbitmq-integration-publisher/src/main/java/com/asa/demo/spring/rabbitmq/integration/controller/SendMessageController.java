@@ -72,4 +72,34 @@ public class SendMessageController {
         return "ok";
     }
 
+    /**
+     * exchange exist but queue not exist
+     */
+    @GetMapping("/send-annotation-message")
+    public String sendAnnotationMessage() {
+        Map<String, Object> map = getMqMessage();
+        //将消息携带绑定键值：AxCalculateUADMessage 发送到交换机AxCalculateUADMessage
+        rabbitTemplate.convertAndSend("defaultExchange",
+                "AxCalculateUADMessage", map);
+        return "ok";
+    }
+
+
+    @GetMapping("/send-durable-queue-and-not")
+    public String sendDurableQueueAndNot() {
+        // 发送持久化mq
+        Map<String, Object> durableMessage = getMqMessage();
+        //将消息携带绑定键值：AxCalculateUADMessage 发送到交换机AxCalculateUADMessage
+        rabbitTemplate.convertAndSend("TestDirectExchange",
+                "TestDirectRouting", durableMessage);
+
+        // 发送非持久化mq
+        Map<String, Object> notDurableMessage = getMqMessage();
+        //将消息携带绑定键值：AxCalculateUADMessage 发送到交换机AxCalculateUADMessage
+        rabbitTemplate.convertAndSend("TestDirectExchange",
+                "TestNotDurableDirectRouting", notDurableMessage);
+        return "ok";
+    }
+
+
 }

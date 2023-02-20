@@ -20,6 +20,11 @@ public class DirectRabbitConfig {
         return new Queue("TestDirectQueue",true);
     }
 
+    @Bean
+    public Queue TestNotDurableDirectQueue(){
+        return new Queue("TestNotDurableDirectQueue",false);
+    }
+
     /**
      * Direct交换机 起名：TestDirectExchange
      */
@@ -34,6 +39,16 @@ public class DirectRabbitConfig {
                 .to(TestDirectExchange())
                 .with("TestDirectRouting");
     }
+
+    @Bean
+    Binding bindingNotDurableDirect() {
+        return BindingBuilder.bind(TestNotDurableDirectQueue())
+                .to(TestDirectExchange())
+                .with("TestNotDurableDirectRouting");
+    }
+
+
+
 
     /**
      * Direct交换机 起名：NotExistQueueButExchangeExchange
