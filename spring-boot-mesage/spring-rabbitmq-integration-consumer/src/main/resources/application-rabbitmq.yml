@@ -5,3 +5,11 @@ spring:
     username: root
     password: root
     virtual-host: pers-xrb
+    listener:
+      direct:
+        retry:
+          max-attempts: 3
+      simple:
+        retry:
+          max-attempts: 3
+        acknowledge-mode: manual

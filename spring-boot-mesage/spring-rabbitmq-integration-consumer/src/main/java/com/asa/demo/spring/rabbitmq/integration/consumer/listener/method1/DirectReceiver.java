@@ -3,7 +3,7 @@
  * @date: 2023/1/3
  * @descrition:
  */
-package com.asa.demo.spring.rabbitmq.integration.consumer.listener;
+package com.asa.demo.spring.rabbitmq.integration.consumer.listener.method1;
 
 import com.asa.demo.spring.rabbitmq.integration.consumer.common.Loggable;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -14,12 +14,12 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 @RabbitListener(queues = "TestDirectQueue")   // 指定监听的队列
-public class DirectReceiver2 extends Loggable {
+public class DirectReceiver extends Loggable {
     @RabbitHandler
     public void process(Object testMessage) {
         try {
             TimeUnit.SECONDS.sleep(1);
-            logger.info("DirectReceiver2[TestDirectQueue]消费者2收到消息  : " + testMessage.toString());
+            logger.info("DirectReceiver[TestDirectQueue]消费者收到消息  : " + testMessage.toString());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

@@ -7,9 +7,13 @@ package com.asa.demo.spring.rabbitmq.integration.controller;
 
 
 import com.asa.demo.spring.rabbitmq.integration.bean.MqConstant;
+import com.asa.demo.spring.rabbitmq.integration.config.DXLOrderMessageConfig;
+import org.apache.commons.lang3.RandomUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,8 +36,7 @@ public class SendMessageController {
     public String sendDirectMessage() {
         Map<String, Object> map = getMqMessage();
         //将消息携带绑定键值：TestDirectRouting 发送到交换机TestDirectExchange
-        rabbitTemplate.convertAndSend("TestDirectExchange",
-                "TestDirectRouting", map);
+        rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", map);
         return "ok";
     }
 
@@ -55,8 +58,7 @@ public class SendMessageController {
     public String sendNotExistExchangeMessage() {
         Map<String, Object> map = getMqMessage();
         //将消息携带绑定键值：TestDirectRouting 发送到交换机TestDirectExchange
-        rabbitTemplate.convertAndSend("NotExistExchangeExchange",
-                "NotExistExchangeExchangeQueue", map);
+        rabbitTemplate.convertAndSend("NotExistExchangeExchange", "NotExistExchangeExchangeQueue", map);
         return "ok";
     }
 
@@ -67,8 +69,7 @@ public class SendMessageController {
     public String sendNotExistQueueButExchangeMessage() {
         Map<String, Object> map = getMqMessage();
         //将消息携带绑定键值：TestDirectRouting 发送到交换机TestDirectExchange
-        rabbitTemplate.convertAndSend("NotExistQueueButExchangeExchange",
-                "NotExistQueueButExchangeQueue", map);
+        rabbitTemplate.convertAndSend("NotExistQueueButExchangeExchange", "NotExistQueueButExchangeQueue", map);
         return "ok";
     }
 
@@ -79,8 +80,7 @@ public class SendMessageController {
     public String sendAnnotationMessage() {
         Map<String, Object> map = getMqMessage();
         //将消息携带绑定键值：AxCalculateUADMessage 发送到交换机AxCalculateUADMessage
-        rabbitTemplate.convertAndSend("defaultExchange",
-                "AxCalculateUADMessage", map);
+        rabbitTemplate.convertAndSend("defaultExchange", "AxCalculateUADMessage", map);
         return "ok";
     }
 
@@ -90,16 +90,27 @@ public class SendMessageController {
         // 发送持久化mq
         Map<String, Object> durableMessage = getMqMessage();
         //将消息携带绑定键值：AxCalculateUADMessage 发送到交换机AxCalculateUADMessage
-        rabbitTemplate.convertAndSend("TestDirectExchange",
-                "TestDirectRouting", durableMessage);
+        rabbitTemplate.convertAndSend("TestDirectExchange", "TestDirectRouting", durableMessage);
 
         // 发送非持久化mq
         Map<String, Object> notDurableMessage = getMqMessage();
         //将消息携带绑定键值：AxCalculateUADMessage 发送到交换机AxCalculateUADMessage
-        rabbitTemplate.convertAndSend("TestDirectExchange",
-                "TestNotDurableDirectRouting", notDurableMessage);
+        rabbitTemplate.convertAndSend("TestDirectExchange", "TestNotDurableDirectRouting", notDurableMessage);
         return "ok";
     }
 
+    @GetMapping("/create-order/{orderNo}")
+    public String createOrder(@PathVariable("orderNo") String orderNo) {
+        // 发送持久化mq
+        Map<String, Object> orderMessage = getMqMessage();
+        if (StringUtils.isEmpty(orderNo)) {
+            orderNo = "order-" + RandomUtils.nextInt(1, 100);
+        }
+        orderMessage.put("orderNo", orderNo);
+        //将消息携带绑定键值：AxCalculateUADMessage 发送到交换机AxCalculateUADMessage
+        rabbitTemplate.convertAndSend(DXLOrderMessageConfig.ORDER_EXCHANGE, DXLOrderMessageConfig.ORDER_ROUTING_KEY, orderMessage);
+
+        return "ok";
+    }
 
 }
