@@ -1,10 +1,10 @@
 spring:
   rabbitmq:
-    host: localhost
-    port: 5672
+    host: 0.0.0.0
+    port: 5674
     username: root
     password: root
-    virtual-host: pers-xrb
+#    virtual-host: pers-xrb
     listener:
       direct:
         retry:

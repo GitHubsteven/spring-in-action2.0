@@ -6,6 +6,8 @@ spring:
     name: spring-rabbitmq-integration-publisher
   profiles:
     active: rabbitmq
+#    集群
+#    active: rabbitmq-cluster
 logging:
   level:
     web: debug

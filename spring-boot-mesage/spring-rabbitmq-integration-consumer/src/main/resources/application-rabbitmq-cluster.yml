@@ -1,9 +1,10 @@
 spring:
   rabbitmq:
-    host: 0.0.0.0
-    port: 5673
     username: root
     password: root
     publisher-confirms: true    #确认消息已发送到交换机(Exchange)
     publisher-returns: true     #确认消息已发送到队列(Queue)
-    addresses:
+    addresses: 0.0.0.0:5674,0.0.0.0:5673,0.0.0.0:5675
+    listener:
+      simple:
+        acknowledge-mode: manual

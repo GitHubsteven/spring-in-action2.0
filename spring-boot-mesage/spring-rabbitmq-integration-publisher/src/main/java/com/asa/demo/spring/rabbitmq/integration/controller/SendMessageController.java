@@ -6,11 +6,10 @@
 package com.asa.demo.spring.rabbitmq.integration.controller;
 
 
-import com.asa.demo.spring.rabbitmq.integration.bean.MqConstant;
+import com.asa.demo.spring.rabbitmq.integration.common.Loggable;
 import com.asa.demo.spring.rabbitmq.integration.config.DXLOrderMessageConfig;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,10 +21,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 @RestController()
 @RequestMapping("/rabbit-mq-sender")
-public class SendMessageController {
+public class SendMessageController extends Loggable {
     private final RabbitTemplate rabbitTemplate;
 
     public SendMessageController(RabbitTemplate rabbitTemplate) {
@@ -101,6 +101,35 @@ public class SendMessageController {
 
     @GetMapping("/create-order/{orderNo}")
     public String createOrder(@PathVariable("orderNo") String orderNo) {
+        sendCheckMq(orderNo);
+        return "ok";
+    }
+
+    /**
+     * 模拟创建订单
+     *
+     * @param orderNo 订单号
+     */
+    @GetMapping("/save-order/{orderNo}")
+    public String simulateCreateOrder(@PathVariable("orderNo") String orderNo) {
+        try {
+            insertOrderTable();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+        // 发送mq去检测延时检测状态
+        sendCheckMq(orderNo);
+        return "ok";
+    }
+
+    private void insertOrderTable() throws InterruptedException {
+        logger.info("start to create order ....");
+        TimeUnit.SECONDS.sleep(1);
+        logger.info("inserted to order table and occupy the stock");
+    }
+
+    private void sendCheckMq(String orderNo) {
         // 发送持久化mq
         Map<String, Object> orderMessage = getMqMessage();
         if (StringUtils.isEmpty(orderNo)) {
@@ -109,8 +138,6 @@ public class SendMessageController {
         orderMessage.put("orderNo", orderNo);
         //将消息携带绑定键值：AxCalculateUADMessage 发送到交换机AxCalculateUADMessage
         rabbitTemplate.convertAndSend(DXLOrderMessageConfig.ORDER_EXCHANGE, DXLOrderMessageConfig.ORDER_ROUTING_KEY, orderMessage);
-
-        return "ok";
     }
 
 }
