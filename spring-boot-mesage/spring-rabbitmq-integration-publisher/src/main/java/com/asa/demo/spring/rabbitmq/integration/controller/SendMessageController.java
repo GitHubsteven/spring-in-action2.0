@@ -11,10 +11,8 @@ import com.asa.demo.spring.rabbitmq.integration.config.DXLOrderMessageConfig;
 import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -140,4 +138,17 @@ public class SendMessageController extends Loggable {
         rabbitTemplate.convertAndSend(DXLOrderMessageConfig.ORDER_EXCHANGE, DXLOrderMessageConfig.ORDER_ROUTING_KEY, orderMessage);
     }
 
+
+    @GetMapping("/message-in-transaction/{isException}")
+    @Transactional(rollbackFor = Exception.class)
+    public boolean messageInTransaction(@PathVariable("isException") Integer isException) {
+        // 发送持久化mq
+        Map<String, Object> durableMessage = getMqMessage();
+        //将消息携带绑定键值：AxCalculateUADMessage 发送到交换机AxCalculateUADMessage
+        rabbitTemplate.convertAndSend("TransactionExchange", "TransactionRouting", durableMessage);
+        if (isException != null && isException == 1) {
+            throw new RuntimeException("exception test!");
+        }
+        return true;
+    }
 }

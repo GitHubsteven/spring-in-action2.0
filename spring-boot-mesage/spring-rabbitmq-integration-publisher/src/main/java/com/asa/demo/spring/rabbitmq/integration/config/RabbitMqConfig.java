@@ -43,6 +43,8 @@ public class RabbitMqConfig {
 
         });
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
+        // 设置是否为事务
+        rabbitTemplate.setChannelTransacted(true);
         return rabbitTemplate;
     }
 

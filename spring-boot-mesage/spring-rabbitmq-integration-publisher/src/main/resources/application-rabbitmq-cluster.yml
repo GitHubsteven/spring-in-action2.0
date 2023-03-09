@@ -7,4 +7,4 @@ spring:
     listener:
       simple:
         acknowledge-mode: manual
-    addresses: 0.0.0.0:5073
+    addresses: 0.0.0.0:5673,0.0.0.0:5674,0.0.0.0:5675
