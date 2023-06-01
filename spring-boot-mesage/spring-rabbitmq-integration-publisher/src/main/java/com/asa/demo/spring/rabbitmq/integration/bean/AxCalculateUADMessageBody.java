@@ -12,11 +12,27 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Setter
 @Getter
 @AxRabbitMqPublisher(queue = "AxCalculateUADMessage", routingKey = "AxCalculateUADMessage")
 public class AxCalculateUADMessageBody extends AbstractMessageBody {
+    @Override
+    public String getRouteKey() {
+        return null;
+    }
+
+    @Override
+    public String getMessgeId() {
+        return null;
+    }
+
+    @Override
+    public Map<String, Object> getMessageBody() {
+        return null;
+    }
+
     /**
      * 用户id
      */

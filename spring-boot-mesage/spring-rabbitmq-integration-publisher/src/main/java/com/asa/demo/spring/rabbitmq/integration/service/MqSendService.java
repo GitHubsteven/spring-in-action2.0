@@ -33,6 +33,10 @@ public class MqSendService {
         rabbitTemplate.convertAndSend(routingKey, mqMessage);
     }
 
+    public void sendMessage(IMessageBody messageBody) {
+
+    }
+
 
     private static Map<String, Object> getMqMessage() {
         String messageId = String.valueOf(UUID.randomUUID());

@@ -35,6 +35,7 @@
         <module>spring-dev-history</module>
         <module>spring-boot-loader-seq</module>
         <module>spring-upload-file</module>
+        <module>spring-scheduler</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
