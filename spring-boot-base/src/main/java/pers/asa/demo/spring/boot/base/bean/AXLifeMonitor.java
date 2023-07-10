@@ -11,15 +11,15 @@ import org.springframework.context.Lifecycle;
 /**
  * 运行的监控
  */
-public class LifeMonitor implements BeanPostProcessor, Lifecycle {
+public class AXLifeMonitor implements BeanPostProcessor, Lifecycle {
     @Override
     public void start() {
-
+        System.out.println("start the ax life monitor");
     }
 
     @Override
     public void stop() {
-
+        System.out.println("stop the ax life monitor");
     }
 
     @Override

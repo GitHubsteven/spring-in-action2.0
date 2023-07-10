@@ -11,8 +11,9 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class TestService {
-    public void test() {
+    public String test() {
         System.out.println(">>>>> test");
+        return "TestService";
     }
 }
 
