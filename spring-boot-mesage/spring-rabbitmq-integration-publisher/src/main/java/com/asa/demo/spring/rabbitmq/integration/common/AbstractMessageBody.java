@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -18,7 +19,7 @@ public abstract class AbstractMessageBody implements IMessageBody {
     /**
      * 消息id
      */
-    private String messageId;
+    private String messageId = UUID.randomUUID().toString();
     /**
      * 生成的时间
      */
@@ -28,4 +29,9 @@ public abstract class AbstractMessageBody implements IMessageBody {
      * 延迟消费，dlx会用到
      */
     private long delayTimeS;
+
+    @Override
+    public String getMessgeId() {
+        return this.messageId;
+    }
 }

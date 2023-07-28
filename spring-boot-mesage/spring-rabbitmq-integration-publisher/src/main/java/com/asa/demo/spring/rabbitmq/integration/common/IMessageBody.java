@@ -15,6 +15,7 @@ public interface IMessageBody {
      */
     String getRouteKey();
 
+
     /**
      * 获取消息体的id，保证唯一性
      *

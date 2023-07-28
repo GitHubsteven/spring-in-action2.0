@@ -14,6 +14,9 @@ public class UserServiceTest extends BaseServiceTest {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserService userService;
+
     @Test
     public void testSaveUser() {
         UserModel userModel = new UserModel();
@@ -21,5 +24,11 @@ public class UserServiceTest extends BaseServiceTest {
         userModel.setName("my-redis");
         UserModel save = userRepository.save(userModel);
         logger.info("---------save user successfully,userId is:{}", save.getId());
+    }
+
+    @Test
+    public void saveAndDelete3() {
+        UserModel userModel = UserService.getUserModel();
+        userService.saveAndDelete3(userModel);
     }
 }

@@ -42,6 +42,7 @@
         <module>spring-boot-loader-seq</module>
         <module>spring-upload-file</module>
         <module>spring-scheduler</module>
+        <module>spring-boot-mesage/ax-common-rabbitmq</module>
     </modules>
 
     <packaging>pom</packaging>

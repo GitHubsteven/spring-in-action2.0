@@ -5,6 +5,8 @@
  */
 package com.asa.demo.spring.rabbitmq.integration.service;
 
+import com.asa.demo.spring.rabbitmq.integration.annotation.AxRabbitMqPublisher;
+import com.asa.demo.spring.rabbitmq.integration.bean.AxCalculateUADMessageBody;
 import com.asa.demo.spring.rabbitmq.integration.common.IMessageBody;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -34,7 +36,19 @@ public class MqSendService {
     }
 
     public void sendMessage(IMessageBody messageBody) {
+        boolean isMessageBody = messageBody.getClass().isAnnotationPresent(AxRabbitMqPublisher.class);
+        if (!isMessageBody)
+            throw new RuntimeException("illegal message body!");
+        AxRabbitMqPublisher annotation = messageBody.getClass().getAnnotation(AxRabbitMqPublisher.class);
+        String routingKey = annotation.routingKey();
+        rabbitTemplate.convertAndSend(routingKey, messageBody);
+    }
 
+    public void sendUADMessage() {
+        AxCalculateUADMessageBody messageBody = new AxCalculateUADMessageBody();
+        messageBody.setDay(LocalDateTime.now());
+        messageBody.setUserId("123");
+        sendMessage(messageBody);
     }
 
 

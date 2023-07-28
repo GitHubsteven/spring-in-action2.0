@@ -2,9 +2,9 @@ package com.asa.demo.spring.cache.service;
 
 import com.asa.demo.spring.cache.model.red.Student;
 import com.asa.demo.spring.cache.repository.red.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,11 @@ import java.util.List;
  */
 @Service
 public class StudentService {
-    @Autowired
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
+
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
     /**
      * @return 保存的id
@@ -64,5 +67,23 @@ public class StudentService {
         List<Student> students = new ArrayList<>();
         studentRepository.findAll().forEach(students::add);
         return students;
+    }
+
+    public void saveAndDelete() {
+        Student student = new Student();
+        student.setName("transaction-test");
+        student.setGender(Student.Gender.MALE);
+        student.setGrade(123);
+        saveAndDelete(student);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void saveAndDelete(Student student) {
+        studentRepository.save(student);
+        String id = student.getId();
+        if (id != null) {
+            throw new RuntimeException("transaction test!");
+        }
+        studentRepository.deleteById(id);
     }
 }

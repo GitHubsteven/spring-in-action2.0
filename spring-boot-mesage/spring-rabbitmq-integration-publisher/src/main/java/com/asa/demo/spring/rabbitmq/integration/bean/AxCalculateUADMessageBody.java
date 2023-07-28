@@ -16,17 +16,13 @@ import java.util.Map;
 
 @Setter
 @Getter
-@AxRabbitMqPublisher(queue = "AxCalculateUADMessage", routingKey = "AxCalculateUADMessage")
+@AxRabbitMqPublisher(queue = "AxCalculateUADMessage", exchange = "TransactionExchange", routingKey = "AxCalculateUADMessage")
 public class AxCalculateUADMessageBody extends AbstractMessageBody {
     @Override
     public String getRouteKey() {
         return null;
     }
 
-    @Override
-    public String getMessgeId() {
-        return null;
-    }
 
     @Override
     public Map<String, Object> getMessageBody() {
@@ -42,4 +38,9 @@ public class AxCalculateUADMessageBody extends AbstractMessageBody {
      * 时间日期
      */
     private LocalDateTime day;
+
+    public static void main(String[] args) {
+        AxCalculateUADMessageBody messageBody = new AxCalculateUADMessageBody();
+        System.out.println(messageBody.getMessageId());
+    }
 }
