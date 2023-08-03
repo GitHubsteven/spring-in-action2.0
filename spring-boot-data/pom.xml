@@ -22,6 +22,8 @@
         <module>spring-data-master-slave-custom</module>
         <module>spring-data-sharding</module>
         <module>spring-data-dynamic-datasource</module>
+        <module>spring-data-migration</module>
+
     </modules>
     <artifactId>spring-boot-data</artifactId>
     <dependencies>
