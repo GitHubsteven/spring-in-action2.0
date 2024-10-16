@@ -5,6 +5,7 @@ spring:
   application:
     name: SpringCacheRedisApplication
   redis:
+    model: standalone
     url: localhost
     port: 6397
   cache:

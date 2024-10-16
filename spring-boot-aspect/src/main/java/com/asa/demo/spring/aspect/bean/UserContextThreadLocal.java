@@ -19,4 +19,8 @@ public class UserContextThreadLocal {
         threadLocalCache.set(value);
     }
 
+    public static void remove() {
+        threadLocalCache.remove();
+    }
+
 }

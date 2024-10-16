@@ -46,7 +46,7 @@ public class UserContextFilter implements Filter, Loggable {
         }
         LOGGER.info("---------- doFilter UserContextFilter: end handle request:{} and set the userContext to null",
                 contextPath);
-        UserContextThreadLocal.set(null);
+        UserContextThreadLocal.remove();
         LOGGER.info("---------- doFilter UserContextFilter: the userContext is:{} after deleted",
                 objectMapper.writeValueAsString(UserContextThreadLocal.get()));
     }
